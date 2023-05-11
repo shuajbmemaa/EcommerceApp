@@ -239,22 +239,48 @@ app.get('/getKategorite',(req,res)=>{
   const sql = "Select * from categories";
   db.query(sql,(err,result)=>{
     if(err) return res.json({Error:"Error"})
-    return res.json({Status:"Success",Result:result})
+    return res.json({Status:"Success",Result:result}) 
   })
 })
 
-app.post('/kategorite/create',(req,res)=>{
-  const sql = "INSERT INTO categories(`name`,`description`,`created_at`) VALUES (?)";
-  const values=[
+app.post('/kategorite/create',(req, res) => {
+  const sql = "Insert into categories (`name`,`description`,`created_at`) VALUES (?)"
+  const values = [
     req.body.name,
     req.body.description,
     req.body.created_at
   ]
-  db.query(sql,[values],(err,result)=>{
-    if (err) return res.json({ Error: "Gabim gjate insertimit te kategorive ne databaze" })
+  db.query(sql, [values], (err, result) => {
+    if (err) return res.json({ Error: "Gabim gjate insertimit te produkteve ne databaze" })
     return res.json({ Status: "Success" })
   })
 })
+
+app.get('/getKategori/:id',(req,res)=>{
+  const id=req.params.id;
+  const sqlQuery="Select * from categories where id = ?"
+  db.query(sqlQuery,[id],(err,result)=>{
+    if (err) return res.json({ Error: "Get category error in sql" })
+    return res.json({ Status: "Success", Result: result })
+  })
+})
+
+app.delete('/deleteKategori/:id',(req,res)=>{
+  const id = req.params.id;
+  const sql = "Delete from categories where id = ?";
+  db.query(sql,[id],(err,res)=>{
+    if(err) return res.json({Error:"Error ne delete"})
+    return res.json({Status:"Success"})
+  })
+})
+
+
+
+
+
+
+
+
 
 app.listen(8081, () => {
   console.log("Running on portt 8081");
