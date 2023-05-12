@@ -243,7 +243,7 @@ app.get('/getKategorite',(req,res)=>{
   })
 })
 
-app.post('/kategorite/create',(req, res) => {
+app.post('/createCategory',(req, res) => {
   const sql = "Insert into categories (`name`,`description`,`created_at`) VALUES (?)"
   const values = [
     req.body.name,
