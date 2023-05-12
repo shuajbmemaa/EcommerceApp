@@ -1,66 +1,44 @@
 import axios from 'axios';
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ShtoKategori = () => {
+  const [kategori, setKategori] = useState({
+    name: '',
+    description: ''
+  });
 
-  const [data,setData]=useState({
-    name:'',
-    description:''
-  })
+  const navigate = useNavigate();
 
-  const navigate=useNavigate();
-
-  const handleSubmit=(event)=>{
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const formdata=FormData();
-    formdata.append("name",data.name)
-    formdata.append("description",data.description)
-    axios.post('http://localhost:8081/createCategory',formdata)
-    .then(res=>{
-      navigate('/kategorite')
-    }).catch(err => console.log(err));
-  }
+    axios.post('http://localhost:8081/createCategory', kategori)
+      .then(res => {
+        navigate('/kategorite');
+      })
+      .catch(err => console.log(err));
+  };
 
   return (
     <div className='d-flex flex-column align-items-center pt-4'>
-      <h2>Create Category</h2>
-      <form className='row g-3 w-50' onSubmit={handleSubmit}>
-        <div className='col-12'>
-          <label htmlFor='inputName' className='form-label'>
-            Name
-          </label>
-          <input
-            type='text'
-            className='form-control'
-            id='inputName'
-            placeholder='Enter Name'
-            autoComplete='off'
-            onChange={e => setData({ ...data, name: e.target.value })}
-          />
+      <h2>Shto Kategori</h2>
+      <form class="row g-3 w-50" onSubmit={handleSubmit}>
+        <div class="col-12">
+          <label for="inputName" class="form-label">Emri</label>
+          <input type="text" class="form-control" id="inputName" placeholder='Vendos Emrin' autoComplete='off'
+            onChange={e => setKategori({ ...kategori, name: e.target.value })} />
         </div>
-        <div className='col-12'>
-          <label htmlFor='inputDescription' className='form-label'>
-            Description
-          </label>
-          <textarea
-            className='form-control'
-            id='inputDescription'
-            rows='3'
-            placeholder='Enter Description'
-            onChange={e =>
-              setData({ ...data, description: e.target.value })
-            }
-          ></textarea>
+        <div class="col-12">
+          <label for="inputDescription" class="form-label">Përshkrimi</label>
+          <textarea class="form-control" id="inputDescription" rows="3" placeholder='Vendos Përshkrimin'
+            onChange={e => setKategori({ ...kategori, description: e.target.value })}></textarea>
         </div>
-        <div className='col-12'>
-          <button type='submit' className='btn btn-primary'>
-            Create
-          </button>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Krijo</button>
         </div>
       </form>
     </div>
   );
-          }
+};
 
-export default ShtoKategori
+export default ShtoKategori;

@@ -235,48 +235,54 @@ app.get('/getProduktet', (req, res) => {
   })
 })
 
-app.get('/getKategorite',(req,res)=>{
-  const sql = "Select * from categories";
-  db.query(sql,(err,result)=>{
-    if(err) return res.json({Error:"Error"})
-    return res.json({Status:"Success",Result:result}) 
-  })
-})
+app.get('/getCategories', (req, res) => {
+  const sql = "SELECT * FROM categories";
+  db.query(sql, (err, result) => {
+    if (err) return res.json({ Error: "Gabim në marrjen e të dhënave" });
+    return res.json({ Status: "Success", Result: result });
+  });
+});
 
-app.post('/createCategory',(req, res) => {
-  const sql = "Insert into categories (`name`,`description`,`created_at`) VALUES (?)"
-  const values = [
-    req.body.name,
-    req.body.description,
-    req.body.created_at
-  ]
-  db.query(sql, [values], (err, result) => {
-    if (err) return res.json({ Error: "Gabim gjate insertimit te produkteve ne databaze" })
-    return res.json({ Status: "Success" })
-  })
-})
+app.delete('/deleteCategory/:id', (req, res) => {
+  const categoryId = req.params.id;
+  const sql = "DELETE FROM categories WHERE id = ?";
+  db.query(sql, [categoryId], (err, result) => {
+    if (err) return res.json({ Error: "Gabim në fshirjen e kategorisë" });
+    if (result.affectedRows === 0) {
+      return res.json({ Status: "Error", Message: "Kategoria nuk u gjet" });
+    }
+    return res.json({ Status: "Success", Message: "Kategoria u fshi me sukses" });
+  });
+});
 
-app.get('/getKategori/:id',(req,res)=>{
+
+
+
+
+app.post('/createCategory', (req, res) => {
+  const { name, description } = req.body;
+  const sql = "INSERT INTO categories (name, description) VALUES (?, ?)";
+  const values = [name, description];
+  
+  db.query(sql, values, (err, result) => {
+    if (err) {
+      return res.json({ Status: "Error", Message: "Gabim në krijimin e kategorisë" });
+    }
+    
+    return res.json({ Status: "Success", Message: "Kategoria u krijua me sukses" });
+  });
+});
+
+
+app.put('/updateKategorii/:id',(req,res)=>{
   const id=req.params.id;
-  const sqlQuery="Select * from categories where id = ?"
-  db.query(sqlQuery,[id],(err,result)=>{
-    if (err) return res.json({ Error: "Get category error in sql" })
+  const {name,description}=req.body;
+  const sql="Update categories set name=?,description=? where id = ?";
+  db.query(sql, [name, description, id], (err, result) => {
+    if (err) return res.json({ Error: "Error when updating in sql" })
     return res.json({ Status: "Success", Result: result })
   })
 })
-
-app.delete('/deleteKategori/:id',(req,res)=>{
-  const id = req.params.id;
-  const sql = "Delete from categories where id = ?";
-  db.query(sql,[id],(err,res)=>{
-    if(err) return res.json({Error:"Error ne delete"})
-    return res.json({Status:"Success"})
-  })
-})
-
-
-
-
 
 
 
