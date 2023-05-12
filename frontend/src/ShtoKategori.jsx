@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 const ShtoKategori = () => {
 
-  const [kategori,setKategori]=useState({
+  const [data,setData]=useState({
     name:'',
     description:''
   })
@@ -13,7 +13,10 @@ const ShtoKategori = () => {
 
   const handleSubmit=(event)=>{
     event.preventDefault();
-    axios.post('http://localhost:8081/kategorite/create',kategori)
+    const formdata=FormData();
+    formdata.append("name",data.name)
+    formdata.append("description",data.description)
+    axios.post('http://localhost:8081/createCategory',formdata)
     .then(res=>{
       navigate('/kategorite')
     }).catch(err => console.log(err));
@@ -33,7 +36,7 @@ const ShtoKategori = () => {
             id='inputName'
             placeholder='Enter Name'
             autoComplete='off'
-            onChange={e => setKategori({ ...kategori, name: e.target.value })}
+            onChange={e => setData({ ...data, name: e.target.value })}
           />
         </div>
         <div className='col-12'>
@@ -46,7 +49,7 @@ const ShtoKategori = () => {
             rows='3'
             placeholder='Enter Description'
             onChange={e =>
-              setKategori({ ...kategori, description: e.target.value })
+              setData({ ...data, description: e.target.value })
             }
           ></textarea>
         </div>
