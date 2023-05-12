@@ -284,6 +284,14 @@ app.put('/updateKategorii/:id',(req,res)=>{
   })
 })
 
+app.get('/gettKategorii/:id',(req,res)=>{
+  const id=req.params.id;
+  const sqlQuery="Select * from categories where id = ?"
+  db.query(sqlQuery,[id],(err,result)=>{
+    if (err) return res.json({ Error: "Get product error in sql" })
+    return res.json({ Status: "Success", Result: result })
+  })
+})
 
 
 
