@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link ,useNavigate} from 'react-router-dom'
 import {toast,ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import './login.css'
 
 const Login = () => {
     const[values,setValues]=useState({
@@ -42,8 +43,10 @@ const Login = () => {
         .then(err => console.log(err))
     }
 
+    
+
     return (
-        <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
+        <div className="d-flex justify-content-center align-items-center bg-primary vh-100 login-container">
           <div className="bg-white p-3 rounded w-25">
             <h2 className="text-center mb-4">Log In</h2>
             <form onSubmit={handleSubmit}>
