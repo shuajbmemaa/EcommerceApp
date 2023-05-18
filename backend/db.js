@@ -50,6 +50,14 @@ const db = mysql.createConnection({
   database: "signup"
 })
 
+db.connect(function(err) {
+  if(err) {
+      console.log("Error in Connection");
+  } else {
+      console.log("Connected");
+  }
+})
+
 app.get('/get/:id', (req, res) => {
   const id = req.params.id;
   const sql = "Select * from klient where id = ?"
