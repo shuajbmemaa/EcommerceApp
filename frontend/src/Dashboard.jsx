@@ -7,6 +7,15 @@ const Dashboard = () => {
     const [userCount,setUserCount]=useState()
     const[productCount,setProductCount]=useState();
     const [admins, setAdmins] = useState([]);
+    const[sumCount,setSumCounts]=useState()
+
+    useEffect(()=>{
+      axios.get('http://localhost:8081/shumaEProdukteve')
+      .then(res=>{
+        setSumCounts(res.data[0].shuma)
+      })
+      .catch(err=>console.log(err))
+    },[])
 
     useEffect(()=>{
       axios.get('http://localhost:8081/productCount')
@@ -69,6 +78,15 @@ const Dashboard = () => {
             <hr />
             <div className=''>
                 <h5>Total : {productCount}</h5>
+            </div>
+          </div>
+          <div className='px-3  pt-2 pb-3 border shadow-sm w-25'>
+           <div className='text-center pb-1'>
+            <h4>Cmimet e gjitha produkteve</h4>
+            </div>
+            <hr />
+            <div className=''>
+                <h5>Total : {sumCount} $</h5>
             </div>
             </div>
 

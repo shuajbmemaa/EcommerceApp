@@ -160,6 +160,14 @@ app.post('/register', (req, res) => {
   })
 })
 
+app.get('/shumaEProdukteve',(req,res)=>{
+  const sql="Select sum(price) as shuma from products";
+  db.query(sql,(err,result)=>{
+    if (err) return res.json({ Error: "Error in running query" })
+    return res.json(result)
+  })
+})
+
 app.post('/login', (req, res) => {
   const sql = 'SELECT * FROM users WHERE email = ? and password = ?';
   db.query(sql, [req.body.email, req.body.password], (err, result) => {

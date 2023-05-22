@@ -4,16 +4,16 @@ import { useState } from 'react';
 const Profile = () => {
   const [userData, setUserData] = useState({});
 
-  const handleUpdate = ()=>{
+  const handleUpdate=(event)=>{
     
-  }
+}
   return (
     <div>
     <h1>Profili im</h1>
     <p>ID: {userData.id}</p>
     <p>Email: {userData.email}</p>
     <p>Password: {userData.password}</p>
-    <button onClick={handleUpdate}>Përditëso të dhënat</button>
+    <button onClick={handleUpdate}>Perditeso te dhenat</button>
   </div>
   )
 }
