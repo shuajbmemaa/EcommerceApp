@@ -1,5 +1,6 @@
 import {Badge, Container, Dropdown, FormControl, Nav, Navbar} from 'react-bootstrap'
 import React from 'react'
+import {FaShoppingCart} from 'react-icons/fa'
 
 const User = () => {
   return (
@@ -14,10 +15,11 @@ const User = () => {
         <Nav>
           <Dropdown alignRight>
             <Dropdown.Toggle variant='success'>
-              <Badge>{10}</Badge>
+              <FaShoppingCart color='white' fontSize="25px"/>
+              <Badge>{0}</Badge>
             </Dropdown.Toggle>
             <Dropdown.Menu style={{minWidth:370}}>
-              <span style={{padding:10}}>Karte eshte e shprazet</span>
+              <span style={{padding:10}}>Karte eshte zbrazet</span>
             </Dropdown.Menu>
           </Dropdown>
         </Nav>
