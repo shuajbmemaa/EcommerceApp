@@ -309,6 +309,11 @@ app.get('/gettKategorii/:id',(req,res)=>{
   })
 })
 
+app.get('/logoutUser', (req, res) => {
+  req.session.destroy();
+  return res.json("Success");
+})
+
 
 
 
