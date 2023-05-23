@@ -1,6 +1,7 @@
 import {Badge, Container, Dropdown, FormControl, Nav, Navbar} from 'react-bootstrap'
 import React from 'react'
 import {FaShoppingCart} from 'react-icons/fa'
+import { LogoutOutlined } from '@ant-design/icons'
 
 const User = () => {
   return (
@@ -17,11 +18,20 @@ const User = () => {
             <Dropdown.Toggle variant='success'>
               <FaShoppingCart color='white' fontSize="25px"/>
               <Badge>{0}</Badge>
+              
             </Dropdown.Toggle>
+            
             <Dropdown.Menu style={{minWidth:370}}>
               <span style={{padding:10}}>Karte eshte zbrazet</span>
             </Dropdown.Menu>
           </Dropdown>
+        </Nav>
+        <Nav>
+          <Nav.Item>
+            <Nav.Link>
+              <LogoutOutlined style={{ fontSize: '20px',color: 'red' }}/>
+            </Nav.Link>
+          </Nav.Item>
         </Nav>
       </Container>
     </Navbar>
