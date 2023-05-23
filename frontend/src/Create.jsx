@@ -49,7 +49,7 @@ const Create = () => {
 					 onChange={e => setData({...data, password: e.target.value})}/>
 				</div>
 				<div class="col-12">
-					<label for="inputAddress" class="form-label">Dd</label>
+					<label for="inputAddress" class="form-label">Adresa</label>
 					<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" autoComplete='off'
 					onChange={e => setData({...data, address: e.target.value})}/>
 				</div>
