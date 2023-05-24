@@ -177,7 +177,9 @@ app.post('/login', (req, res) => {
     }
     if (result.length > 0) {
       req.session.role = result[0].role;
-      console.log(req.session.name);
+
+      //console.log(req.session.name);
+      //console.log(result);
       return res.json({ Login: true, name: req.session.name })
     } else {
       res.json({ Login: false });
