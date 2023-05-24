@@ -10,6 +10,7 @@ const Produktet = () => {
     axios.get('http://localhost:8081/getProduktet')
     .then(res=>{
       if(res.data.Status === "Success"){
+        console.log(res.data.Result);
         setData(res.data.Result)
       }else{
         alert("Erorr")
@@ -54,7 +55,7 @@ const Produktet = () => {
                 <td>{Produktet.description}</td>
                 <td>{Produktet.price}</td>
                 <td>{
-                    <img src={`http://localhost:8081/images/` + Produktet.image} alt="" 
+                    <img src={`http://localhost:8081/images/` + Produktet.image_url} alt="" 
                     className='produktet_image'/>
                     }</td>
                 <td>{Produktet.stock}</td>
