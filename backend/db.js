@@ -172,7 +172,8 @@ app.post('/login', (req, res) => {
   const sql = 'SELECT * FROM users WHERE email = ? and password = ?';
   db.query(sql, [req.body.email, req.body.password], (err, result) => {
     if (err) {
-      res.json({ Error: "An error occurred while logging in" });
+      console.log(err);
+      return res.json({ Error: "An error occurred while logging in" });
     }
     if (result.length > 0) {
       req.session.role = result[0].role;
