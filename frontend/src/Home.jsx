@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Admin from './Admin'
 import User from './User'
+import Kompania from './Kompania'
 
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
     <div>
         {role === "admin" && <Admin/>}
         {role === "user" && <User/>}
+        {role === "kompani" && <Kompania/>}
         </div>
   )
 }
