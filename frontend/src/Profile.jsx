@@ -1,4 +1,4 @@
-// ProfilePage.jsx
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './index.css';
@@ -7,7 +7,7 @@ const ProfilePage = () => {
   const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
-    // Fetch profile data from the database
+
     const fetchProfileData = async () => {
       try {
         const response = await axios.get('http://localhost:8081/api/profile');
