@@ -1,34 +1,54 @@
+
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import React, { useEffect } from 'react'
-import { useState } from 'react';
+import './index.css';
 
-const Profile = () => {
-  const [userData, setUserData] = useState([]);
+const ProfilePage = () => {
+  const [profileData, setProfileData] = useState(null);
 
-  
+  useEffect(() => {
+
+    const fetchProfileData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8081/api/profile');
+        setProfileData(response.data);
+      } catch (error) {
+        console.error('Error fetching profile data:', error);
+      }
+    };
+
+    fetchProfileData();
+  }, []);
+
+  const maskPassword = (password) => {
+    const maskLength = password.length ;
+    const maskedPassword = '*'.repeat(maskLength) ;
+    return maskedPassword;
+  };
+
+  if (!profileData) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className='mt-4 px-5 pt-3'>
-        <h3 className='text-center'>Profili im </h3>
-        <table className="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {userData.map(users => (
-            <tr key={users.id}>
-              <td>{users.id}</td>
-              <td>{users.name}</td>
-              <td>{users.email}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      </div>
+    <div className="profile-container">
+      <h1 className="profile-heading">Profile</h1>
+      <ul className="profile-list">
+        <li className="profile-item">
+          <strong>ID:</strong> {profileData.id}
+        </li>
+        <li className="profile-item">
+          <strong>Name:</strong> {profileData.name}
+        </li>
+        <li className="profile-item">
+          <strong>Email:</strong> {profileData.email}
+        </li>
+        <li className="profile-item">
+          <strong>Password:</strong>
+          <span>{maskPassword(profileData.password)}</span>
+        </li>
+      </ul>
+    </div>
   );
-}
-
-export default Profile
+};
+export default ProfilePage;

@@ -316,10 +316,22 @@ app.get('/logoutUser', (req, res) => {
   req.session.destroy();
   return res.json("Success");
 })
+app.get('/api/profile', (req, res) => {
+  const sql = 'SELECT * FROM users WHERE id = ?';
+  const userId = 1; // Change this to the actual user ID
 
-
+  db.query(sql, [userId], (error, results) => {
+    if (error) {
+      console.error('Error executing query:', error);
+      res.status(500).json({ error: 'An error occurred' });
+    } else {
+      res.json(results[0]);
+    }
+  });
+});
 
 
 app.listen(8081, () => {
   console.log("Running on portt 8081");
 })
+
