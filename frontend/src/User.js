@@ -1,11 +1,23 @@
 import {Badge, Container, Dropdown, FormControl, Nav, Navbar} from 'react-bootstrap'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {FaShoppingCart} from 'react-icons/fa'
 import { LogoutOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const User = () => {
+
+  const [produktet,setProduktet]=useState([]);
+
+  useEffect(()=>{
+    axios.get('http://localhost:8081/produktetUser')
+    .then(response=>{
+      setProduktet(response.data)
+    })
+    .catch(err=>{
+      console.log('Gabim gjate shfaqjes se produkteve',err);
+    })
+  },[])
 
   const handleLogout = () => {
     axios.get('http://localhost:8081/logoutUser')
@@ -46,6 +58,7 @@ const User = () => {
         </Nav>
       </Container>
     </Navbar>
+    
   )
 }
 
