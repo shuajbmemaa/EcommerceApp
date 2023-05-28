@@ -330,6 +330,18 @@ app.get('/api/profile', (req, res) => {
   });
 });
 
+app.get('/produktetUser', (req, res) => {
+  const query = 'SELECT * FROM products'; // Kërkesa SQL për të zgjedhur të gjitha produktet
+
+  db.query(query, (error, results) => {
+    if (error) {
+      console.error('Gabim gjatë marrjes së produkteve: ', error);
+      res.status(500).json({ error: 'Gabim gjatë marrjes së produkteve' });
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
 
 app.listen(8081, () => {
   console.log("Running on portt 8081");
