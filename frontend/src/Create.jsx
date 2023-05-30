@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify'
+
 
 const Create = () => {
 
@@ -25,6 +27,7 @@ const Create = () => {
 		axios.post('http://localhost:8081/create',formData)
 		.then(res => {
 			navigate('/klientet')
+			toast.success('Klienti u shtua me sukses');
 		})
 		.catch(err => console.log(err))
 	}
