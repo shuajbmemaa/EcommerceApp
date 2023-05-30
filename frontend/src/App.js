@@ -17,6 +17,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EditKategori from './EditKategori';
 import Order from './Order';
+import KategoriteView from './KategoriteView';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path='/shtoKategori' element={<ShtoKategori/>}></Route>
         <Route path='/editKategori/:id' element={<EditKategori/>}></Route>
         <Route path='/orders' element={<Order/>}></Route>
+        <Route path='/kategorite/:id' element={<KategoriteView/>}></Route>
       </Route>
       <Route path='/register' element={<Register/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
