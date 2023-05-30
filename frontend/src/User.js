@@ -58,7 +58,7 @@ const User = () => {
       </Container>
     </Navbar>
     <Container>
-      <h2 style={{ marginTop: '20px' }}>Lista e produkteve</h2>
+      <h2 style={{ marginTop: '20px',textAlign:'center' }}>Kategorite</h2>
       <ul style={{ listStyleType: 'none', padding: '0' }}>
         {produktet.map((product) => (
           <li key={product.id} style={{ marginBottom: '10px' }}>
