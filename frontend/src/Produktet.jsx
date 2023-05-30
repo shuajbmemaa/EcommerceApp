@@ -61,7 +61,7 @@ const Produktet = () => {
                 <td>{Produktet.stock}</td>
                     <td>
                     <Link to={`/editProdukt/` + Produktet.id} className='btn btn-primary btn-sm me-2'>Edit</Link>
-                    <button onClick={e=> handleDelete(Produktet.id)} className='btn btn-sm btn-danger'>Delete</button>
+                    <button onClick={()=> handleDelete(Produktet.id)} className='btn btn-sm btn-danger'>Delete</button>
                     <Link to={`/produktet/`+Produktet.id} className='btn btn-sm btn-info ms-2'>View</Link>
                     </td>
               </tr>
