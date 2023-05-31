@@ -35,7 +35,7 @@ const ProduktetView = () => {
                     <td>Stock :{produkti.stock}</td>
                     <td>Kategori :{produkti.category_id}</td>
                     <td>Krijuar me :{produkti.created_at}</td>
-                    <Link to="/kategorite" className='btn btn-primary'>
+                    <Link to="/produktet" className='btn btn-primary'>
                         Kthehu te Produktet
                     </Link>
                   </tr>
