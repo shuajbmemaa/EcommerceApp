@@ -264,7 +264,7 @@ app.get('/getCategories', (req, res) => {
 
 app.get('/getCategoryView/:id',(req,res)=>{
   const id = req.params.id;
-  const sql = "Select name,description from categories where id = ?";
+  const sql = "Select id,name,description from categories where id = ?";
   db.query(sql,[id],(err,result)=>{
     if (err) return res.json({ Error: "Error when getting data in sql" })
     return res.json({ Status: "Success", Result: result })
