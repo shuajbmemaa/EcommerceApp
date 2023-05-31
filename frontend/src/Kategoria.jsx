@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import {toast} from 'react-toastify'
 
 const Kategoria = () => {
   const [categories, setCategories] = useState([]);
@@ -22,6 +23,7 @@ const Kategoria = () => {
       .then(res => {
         if (res.data.Status === "Success") {
           window.location.reload(true);
+          toast.success('Kategoria u fshie me sukses');
         } else {
           alert("Error");
         }

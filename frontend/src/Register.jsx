@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import {toast} from 'react-toastify'
 
 const Register = () => {
 
@@ -22,6 +23,7 @@ const Register = () => {
         .then(res => {
             console.log(res);
             navigate('/login')
+            toast.warn('Ju lutem vazhdoni ne log in dhe prisni deri te merrni rolin tuaj')
         }) 
         .catch(err => console.log(err))
     }

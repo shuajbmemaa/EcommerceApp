@@ -10,6 +10,7 @@ const Produktet = () => {
     axios.get('http://localhost:8081/getProduktet')
     .then(res=>{
       if(res.data.Status === "Success"){
+        console.log(res.data.Result);
         setData(res.data.Result)
       }else{
         alert("Erorr")
@@ -54,13 +55,13 @@ const Produktet = () => {
                 <td>{Produktet.description}</td>
                 <td>{Produktet.price}</td>
                 <td>{
-                    <img src={`http://localhost:8081/images/` + Produktet.image} alt="" 
+                    <img src={`http://localhost:8081/images/` + Produktet.image_url} alt="" 
                     className='produktet_image'/>
                     }</td>
                 <td>{Produktet.stock}</td>
                     <td>
                     <Link to={`/editProdukt/` + Produktet.id} className='btn btn-primary btn-sm me-2'>Edit</Link>
-                    <button onClick={e=> handleDelete(Produktet.id)} className='btn btn-sm btn-danger'>Delete</button>
+                    <button onClick={()=> handleDelete(Produktet.id)} className='btn btn-sm btn-danger'>Delete</button>
                     <Link to={`/produktet/`+Produktet.id} className='btn btn-sm btn-info ms-2'>View</Link>
                     </td>
               </tr>

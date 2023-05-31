@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify'
 
 const ShtoKategori = () => {
   const [kategori, setKategori] = useState({
@@ -15,6 +16,7 @@ const ShtoKategori = () => {
     axios.post('http://localhost:8081/createCategory', kategori)
       .then(res => {
         navigate('/kategorite');
+        toast.success('Kategoria u shtua!');
       })
       .catch(err => console.log(err));
   };

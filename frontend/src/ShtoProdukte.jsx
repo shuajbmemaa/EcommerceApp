@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify'
+
 
 const ShtoProdukte = () => {
         
@@ -27,6 +29,7 @@ const ShtoProdukte = () => {
         axios.post('http://localhost:8081/produktet/create', formData)
           .then(res => {
             navigate('/produktet')
+            toast.success('Produkti u shtua me sukses');
           })
           .catch(err => console.log(err))
       }

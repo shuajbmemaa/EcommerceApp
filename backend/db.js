@@ -172,11 +172,14 @@ app.post('/login', (req, res) => {
   const sql = 'SELECT * FROM users WHERE email = ? and password = ?';
   db.query(sql, [req.body.email, req.body.password], (err, result) => {
     if (err) {
-      res.json({ Error: "An error occurred while logging in" });
+      console.log(err);
+      return res.json({ Error: "An error occurred while logging in" });
     }
     if (result.length > 0) {
       req.session.role = result[0].role;
-      console.log(req.session.name);
+
+      //console.log(req.session.name);
+      //console.log(result);
       return res.json({ Login: true, name: req.session.name })
     } else {
       res.json({ Login: false });
@@ -259,6 +262,23 @@ app.get('/getCategories', (req, res) => {
   });
 });
 
+app.get('/getCategoryView/:id',(req,res)=>{
+  const id = req.params.id;
+  const sql = "Select name,description from categories where id = ?";
+  db.query(sql,[id],(err,result)=>{
+    if (err) return res.json({ Error: "Error when getting data in sql" })
+    return res.json({ Status: "Success", Result: result })
+  })
+})
+app.get('/getProduktetView/:id',(req,res)=>{
+  const id = req.params.id;
+  const sql = "Select id,name,description,price,image_url,stock,category_id,created_at from products where id = ?";
+  db.query(sql,[id],(err,result)=>{
+    if (err) return res.json({ Error: "Error when getting data in sql" })
+    return res.json({ Status: "Success", Result: result })
+  })
+})
+
 app.delete('/deleteCategory/:id', (req, res) => {
   const categoryId = req.params.id;
   const sql = "DELETE FROM categories WHERE id = ?";
@@ -314,9 +334,38 @@ app.get('/logoutUser', (req, res) => {
   return res.json("Success");
 })
 
+app.get('/logoutKompani',(req,res)=>{
+  req.session.destroy();
+  return res.json("Success");
+})
+app.get('/api/profile', (req, res) => {
+  const sql = 'SELECT * FROM users WHERE id = ?';
+  const userId = 1; // Change this to the actual user ID
 
+  db.query(sql, [userId], (error, results) => {
+    if (error) {
+      console.error('Error executing query:', error);
+      res.status(500).json({ error: 'An error occurred' });
+    } else {
+      res.json(results[0]);
+    }
+  });
+});
 
+app.get('/produktetUser', (req, res) => {
+  const query = 'SELECT * FROM products'; // Kërkesa SQL për të zgjedhur të gjitha produktet
+
+  db.query(query, (error, results) => {
+    if (error) {
+      console.error('Gabim gjatë marrjes së produkteve: ', error);
+      res.status(500).json({ error: 'Gabim gjatë marrjes së produkteve' });
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
 
 app.listen(8081, () => {
   console.log("Running on portt 8081");
 })
+
