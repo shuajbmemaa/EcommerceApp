@@ -349,7 +349,7 @@ app.get('/produktetUser', (req, res) => {
 
   db.query(query, (error, results) => {
     if (error) {
-      console.error('Gabim gjatë marrjes së produkteve: ', error);
+      console.error('Gabim gjatë marrjess së produkteve: ', error);
       res.status(500).json({ error: 'Gabim gjatë marrjes së produkteve' });
     } else {
       res.status(200).json(results);
