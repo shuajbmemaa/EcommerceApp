@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const Produktet = () => {
 
   const [data,setData]=useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(()=>{
     axios.get('http://localhost:8081/getProduktet')
@@ -30,11 +31,26 @@ const Produktet = () => {
       })
       .catch(err=>console.log(err))
     }
+
+    const handleSearch = (e) => {
+      setSearchTerm(e.target.value);
+    };
+
+    const filteredData = data.filter((Produktet) =>
+    Produktet.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   return (
     <div className='px-5 py-3'>
         <div className='d-flex justify-content-center'>
             <h3>Lista e Produkteve :</h3>
-        </div>  
+        </div>
+        <input
+        type="text"
+        placeholder="Kërko produktin..."
+        value={searchTerm}
+        onChange={handleSearch}
+        className="form-control mb-3"
+      />
         <Link to="/shtoProdukte" className='btn btn-success'>Shto Produkte</Link>
         <div className='mt-3'>
         <table className='table'>
@@ -49,7 +65,7 @@ const Produktet = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((Produktet,index)=>{
+            {filteredData.map((Produktet,index)=>{
             return  <tr key={index}>
                 <td>{Produktet.name}</td>
                 <td>{Produktet.description}</td>
