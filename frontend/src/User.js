@@ -2,12 +2,22 @@ import {Badge, Container, Dropdown, FormControl, Nav, Navbar} from 'react-bootst
 import React, { useEffect, useState } from 'react'
 import {FaShoppingCart} from 'react-icons/fa'
 import { LogoutOutlined } from '@ant-design/icons'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const User = () => {
 
   const [produktet,setProduktet]=useState([]);
+  const[kategoriteUser,setKategoriteUser]=useState([])
+
+  useEffect(()=>{
+    axios.get('http://localhost:8081/user/kategorite')
+    .then(response =>{
+      setKategoriteUser(response.data)
+    })
+    .catch(err =>{
+      console.log(err)
+    })
+  },[])
 
   useEffect(()=>{
     axios.get('http://localhost:8081/produktetUser')
@@ -59,6 +69,14 @@ const User = () => {
     </Navbar>
     <Container>
       <h2 style={{ marginTop: '20px',textAlign:'center' }}>Kategorite</h2>
+      <ul>
+        {kategoriteUser.map(kategori=>{
+          <li key={kategori.id}>
+            {kategori.name}
+          </li>
+        })}
+      </ul>
+
       <ul style={{ listStyleType: 'none', padding: '0' }}>
         {produktet.map((product) => (
           <li key={product.id} style={{ marginBottom: '10px' }}>
