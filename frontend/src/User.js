@@ -69,10 +69,10 @@ const User = () => {
     </Navbar>
     <Container>
       <h2 style={{ marginTop: '20px',textAlign:'center' }}>Kategorite</h2>
-      <ul>
+      <ul className="categories-list">
         {kategoriteUser.map(kategori=>{
           return(
-          <li key={kategori.id}>
+          <li key={kategori.id} className="category-item">
             {kategori.name}
           </li>
           )
