@@ -1,8 +1,9 @@
-import {Badge, Container, Dropdown, FormControl, Nav, Navbar} from 'react-bootstrap'
-import React, { useEffect, useState } from 'react'
-import {FaShoppingCart} from 'react-icons/fa'
-import { LogoutOutlined } from '@ant-design/icons'
-import axios from 'axios'
+import {Badge, Container, Dropdown, FormControl, Nav, Navbar} from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import {FaShoppingCart} from 'react-icons/fa';
+import { LogoutOutlined } from '@ant-design/icons';
+import axios from 'axios';
+import './CategoriesStyle.css'
 
 const User = () => {
 
