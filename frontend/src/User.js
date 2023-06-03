@@ -1,35 +1,34 @@
-import {Badge, Container, Dropdown, FormControl, Nav, Navbar} from 'react-bootstrap'
-import React, { useEffect, useState } from 'react'
-import {FaShoppingCart} from 'react-icons/fa'
-import { LogoutOutlined } from '@ant-design/icons'
-import axios from 'axios'
-import './CategoriesStyle.css'
+import { Badge, Container, Dropdown, FormControl, Nav, Navbar } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { FaShoppingCart } from 'react-icons/fa';
+import { LogoutOutlined } from '@ant-design/icons';
+import axios from 'axios';
+import './CategoriesStyle.css';
 
 const User = () => {
+  const [produktet, setProduktet] = useState([]);
+  const [kategoriteUser, setKategoriteUser] = useState([]);
+  const [kategoriaZgjedhur, setKategoriaZgjedhur] = useState(null);
 
-  const [produktet,setProduktet]=useState([]);
-  const[kategoriteUser,setKategoriteUser]=useState([])
-  const [kategoriaAktive, setKategoriaAktive] = useState(null);
-
-  useEffect(()=>{
+  useEffect(() => {
     axios.get('http://localhost:8081/user/kategorite')
-    .then(response =>{
-      setKategoriteUser(response.data)
-    })
-    .catch(err =>{
-      console.log(err)
-    })
-  },[])
+      .then(response => {
+        setKategoriteUser(response.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     axios.get('http://localhost:8081/produktetUser')
-    .then(response=>{
-      setProduktet(response.data)
-    })
-    .catch(err=>{
-      console.log('Gabim gjate shfaqjes se produkteve',err);
-    })
-  },[])
+      .then(response => {
+        setProduktet(response.data);
+      })
+      .catch(err => {
+        console.log('Gabim gjatë shfaqjes së produkteve', err);
+      });
+  }, []);
 
   const handleLogout = () => {
     axios.get('http://localhost:8081/logoutUser')
@@ -39,7 +38,14 @@ const User = () => {
       .catch(err => console.log(err));
   };
 
-  
+  const handleKategoriaClick = (kategoriaId) => {
+    setKategoriaZgjedhur(kategoriaId);
+  };
+
+  const produktetFiltruar = kategoriaZgjedhur
+    ? produktet.filter(product => product.category_id === kategoriaZgjedhur)
+    : produktet;
+
   return (
     <div>
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
@@ -69,22 +75,39 @@ const User = () => {
         </Nav>
       </Container>
     </Navbar>
-    <Container>
-      <h2 style={{ marginTop: '20px',textAlign:'center' }}>Kategorite</h2>
-      <ul className="categories-list">
-        {kategoriteUser.map(kategori=>{
-          return(
-          <li key={kategori.id} className="category-item">
-            {kategori.name}
-          </li>
-          )
-        })}
-      </ul>
+      <Container>
+        <h2 style={{ marginTop: '20px', textAlign: 'center' }}>Kategoritë</h2>
+        <ul className="categories-list">
+          {kategoriteUser.map(kategori => (
+            <li
+              key={kategori.id}
+              className={`category-item ${kategoriaZgjedhur === kategori.id ? 'selected' : ''}`}
+              onClick={() => handleKategoriaClick(kategori.id)}
+            >
+              {kategori.name}
+            </li>
+          ))}
+        </ul>
 
-    </Container>
-  </div>
-     
-  )
-}
+        <ul style={{ listStyleType: 'none', padding: '0' }}>
+          {produktetFiltruar.map(product => (
+            <li key={product.id} style={{ marginBottom: '10px' }}>
+              <span style={{ marginRight: '10px' }}>{product.name}</span>
+              <span style={{ marginRight: '10px' }}>{product.price}</span>
+              <span>
+                <img
+                  src={`http://localhost:8081/images/${product.image_url}`}
+                  alt=""
+                  className="produktet_image"
+                  style={{ width: '100px', height: '100px' }}
+                />
+              </span>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </div>
+  );
+};
 
-export default User
+export default User;
