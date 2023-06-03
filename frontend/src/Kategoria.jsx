@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import {toast} from 'react-toastify'
 
 const Kategoria = () => {
-  const [categories, setCategories] = useState([]);
-
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   useEffect(() => {
     axios.get('http://localhost:8081/getCategories')
       .then(res => {
         if (res.data.Status === "Success") {
-          setCategories(res.data.Result);
+          setData(res.data.Result);
         } else {
           alert("Error");
         }
@@ -29,7 +29,14 @@ const Kategoria = () => {
         }
       })
       .catch(err => console.log(err));
+  }
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
   };
+
+  const filteredData = data.filter((Kategoria) =>
+  Kategoria.name.toLowerCase().includes(searchTerm.toLowerCase())
+);;
 
   return (
     <div className='px-5 py-3'>
@@ -38,7 +45,11 @@ const Kategoria = () => {
       </div>
       <input
         type="text"
-        placeholder="Kërko kategorin..."/>
+        placeholder="Kërko kategorin..."
+        value={searchTerm}
+        onChange={handleSearch}
+        className="form-control mb-3"
+      />
       <Link to="/shtoKategori" className='btn btn-success'>Shto Kategori</Link>
       <div className='mt-3'>
         <table className='table'>
@@ -50,7 +61,7 @@ const Kategoria = () => {
             </tr>
           </thead>
           <tbody>
-            {categories.map((kategori, index) => (
+            {filteredData.map((kategori, index) => (
               <tr key={index}>
                 <td>{kategori.id}</td>
                 <td>{kategori.name}</td>
