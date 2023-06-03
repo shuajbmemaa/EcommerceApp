@@ -1,0 +1,20 @@
+.categories-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .category-item {
+    margin: 10px;
+    padding: 10px;
+    background-color: lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .category-item:hover {
+    background-color: gray;
+    color: white;
+  }
+  
