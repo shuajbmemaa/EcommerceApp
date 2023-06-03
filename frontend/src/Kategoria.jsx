@@ -36,6 +36,9 @@ const Kategoria = () => {
       <div className='d-flex justify-content-center'>
         <h3>Lista e Kategorive:</h3>
       </div>
+      <input
+        type="text"
+        placeholder="Kërko kategorin..."/>
       <Link to="/shtoKategori" className='btn btn-success'>Shto Kategori</Link>
       <div className='mt-3'>
         <table className='table'>
