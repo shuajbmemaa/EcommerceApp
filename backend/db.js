@@ -365,6 +365,19 @@ app.get('/produktetUser', (req, res) => {
   });
 });
 
+
+app.get('/user/kategorite',(req,res)=>{
+  const sql='Select * from categories';
+  db.query(sql,(err,results)=>{
+    if (err) {
+      console.error('Gabim gjate marrjess se kategorive: ', err);
+      res.status(500).json({ error: 'Gabim gjate marrjes se kategorive' });
+    } else {
+      res.status(200).json(results);
+    }
+  })
+})
+
 app.listen(8081, () => {
   console.log("Running on portt 8081");
 })
