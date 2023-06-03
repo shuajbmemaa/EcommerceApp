@@ -71,9 +71,11 @@ const User = () => {
       <h2 style={{ marginTop: '20px',textAlign:'center' }}>Kategorite</h2>
       <ul>
         {kategoriteUser.map(kategori=>{
+          return(
           <li key={kategori.id}>
             {kategori.name}
           </li>
+          )
         })}
       </ul>
 
