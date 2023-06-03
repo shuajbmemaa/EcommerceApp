@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react'
 import {FaShoppingCart} from 'react-icons/fa'
 import { LogoutOutlined } from '@ant-design/icons'
 import axios from 'axios'
+import './CategoriesStyle.css'
 
 const User = () => {
 
   const [produktet,setProduktet]=useState([]);
   const[kategoriteUser,setKategoriteUser]=useState([])
+  const [kategoriaAktive, setKategoriaAktive] = useState(null);
 
   useEffect(()=>{
     axios.get('http://localhost:8081/user/kategorite')
@@ -79,22 +81,6 @@ const User = () => {
         })}
       </ul>
 
-      <ul style={{ listStyleType: 'none', padding: '0' }}>
-        {produktet.map((product) => (
-          <li key={product.id} style={{ marginBottom: '10px' }}>
-            <span style={{ marginRight: '10px' }}>{product.name}</span>
-            <span style={{ marginRight: '10px' }}>{product.price}</span>
-            <span>
-              <img
-                src={`http://localhost:8081/images/${product.image_url}`}
-                alt=""
-                className="produktet_image"
-                style={{ width: '100px', height: '100px' }}
-              />
-            </span>
-          </li>
-        ))}
-      </ul>
     </Container>
   </div>
      
