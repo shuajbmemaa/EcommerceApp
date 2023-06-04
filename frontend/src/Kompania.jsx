@@ -13,14 +13,17 @@ const Kompania = () => {
   };
 
   return (
-    <div>
-      <h2>Kompania</h2>
-      <li onClick={handleLogout} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-            <LogoutOutlined style={{ fontSize: '20px', marginRight: '5px', color: 'black' }} />
-            <span style={{ fontSize: '16px', color: 'white' }}>Logout</span>
-          </li>
-    </div>
-    
+    <header className='header'>
+      <div className='container-fluid'>
+        <div className='row'>
+          <div className='col-xs-3 col-lg-2'>
+            <div className='header__logo'>
+              <font>eStore</font>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
   )
 }
 
