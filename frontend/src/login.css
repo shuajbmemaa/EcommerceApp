@@ -1,15 +1,5 @@
-.login-container {
-   /*background-image: url(undraw_shopping_app_flsj.svg);*/
-    background-size:510px;
-    background-position: left;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #87CEEB	;
-    height: 100vh;
-  }
-  .login {
+
+  /*.login {
     background-color: white;
     padding: 3px;
     width: 85%;
@@ -24,18 +14,109 @@
   }
 
   .textL{
-    font-size: 15px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:600;
+    padding-left: 150px;  
+    padding-top: 50px;  
   }
  
-  .form-label{
+  .form-label1{
     background-color: blueviolet;
+    margin-top: 120px;
+    
   }
 .buttonL{
   background-color: black;
 }
 .buttonC{
   background-color: black;
+}*/
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #87CEEB	;
+}
+
+.login {
+  background-color: white;
+  padding: 3px;
+  width: 85%;
+  height: 90%;
+  background-image: url('Commerce.jpg');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size:contain;
+  
+}
+
+.textL {
+  text-align: left;
+  font-size: 25px;
+  margin-top: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 150px;  
+    padding-top: 50px; 
+    
+}
+
+
+.form-label-password {
+  font-size: 15px;
+  margin-left: 93px;
+}
+.form-label-email {
+  font-size: 15px;
+  margin-left: 93px;
+  margin-top: 30px;
+}
+.f1{
+  margin-left: 90px;
+  padding-bottom: 20px;
+  margin-top: 10px;
+ }
+.f2{
+ margin-left: 90px;
+ padding-bottom: 20px;
+}
+.buttonL{
+  display: block;
+  width:250px;
+  padding: 10px;
+  background-color:#3457D5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-left: 118px;
+}
+.buttonC {
+  display: block;
+  width:250px;
+  padding: 10px;
+  background-color:#b5c2f1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-left: 118px;
+}
+
+.buttonL:hover,
+.buttonC:hover {
+  background-color: darkblue;
 }
 .textP{
-  font-size: 10px;
+  font-size: 15px;
+  margin-left: 235px;
 }
