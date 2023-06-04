@@ -1,43 +1,10 @@
 
-  /*.login {
-    background-color: white;
-    padding: 3px;
-    width: 85%;
-    height: 90%;
-    background-image: url(Commerce.jpg);
-    background-size: 800px;
-    background-position: right;
-    background-repeat: no-repeat;
-    display: flex;
- 
-    
-  }
-
-  .textL{
-    font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight:600;
-    padding-left: 150px;  
-    padding-top: 50px;  
-  }
- 
-  .form-label1{
-    background-color: blueviolet;
-    margin-top: 120px;
-    
-  }
-.buttonL{
-  background-color: black;
-}
-.buttonC{
-  background-color: black;
-}*/
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #87CEEB	;
+  background-color: #72A0C1;
 }
 
 .login {
@@ -57,66 +24,74 @@
   font-size: 25px;
   margin-top: 100px;
   font-family: Arial, Helvetica, sans-serif;
-  padding-left: 150px;  
-    padding-top: 50px; 
+  font-weight: 600;
+  color:#72A0C1;
+  padding-left: 107px;  
+  padding-top: 50px; 
+  
     
 }
 
 
 .form-label-password {
   font-size: 15px;
-  margin-left: 93px;
+  margin-left: 81px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .form-label-email {
   font-size: 15px;
-  margin-left: 93px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 81px;
   margin-top: 30px;
 }
 .f1{
-  margin-left: 90px;
+  margin-left: 80px;
   padding-bottom: 20px;
   margin-top: 10px;
+
  }
 .f2{
- margin-left: 90px;
- padding-bottom: 20px;
+ margin-left: 80px;
+ padding-bottom: 40px;
+
 }
 .buttonL{
   display: block;
-  width:250px;
-  padding: 10px;
-  background-color:#3457D5;
+  width:312px;
+  padding: 5px;
+  background-color:#72A0C1;
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   margin-bottom: 10px;
-  margin-left: 118px;
+  margin-left: 78px;
+  font-family: Arial, Helvetica, sans-serif;
+  
 }
 .buttonC {
   display: block;
-  width:250px;
-  padding: 10px;
-  background-color:#b5c2f1;
+  width:312px;
+  padding: 5px;
+  background-color:#9b9fab;
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   margin-bottom: 10px;
-  margin-left: 118px;
+  margin-left: 78px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .buttonL:hover,
 .buttonC:hover {
-  background-color: darkblue;
+  background-color: #2774AE;
 }
 .textP{
-  font-size: 15px;
+  font-size: 10px;
   margin-left: 235px;
 }
