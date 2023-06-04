@@ -1,7 +1,41 @@
 .login-container {
-    background-image: url(undraw_shopping_app_flsj.svg);
+   /*background-image: url(undraw_shopping_app_flsj.svg);*/
     background-size:510px;
     background-position: left;
     background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #87CEEB	;
+    height: 100vh;
   }
-  
+  .login {
+    background-color: white;
+    padding: 3px;
+    width: 85%;
+    height: 90%;
+    background-image: url(Commerce.jpg);
+    background-size: 800px;
+    background-position: right;
+    background-repeat: no-repeat;
+    display: flex;
+ 
+    
+  }
+
+  .textL{
+    font-size: 15px;
+  }
+ 
+  .form-label{
+    background-color: blueviolet;
+  }
+.buttonL{
+  background-color: black;
+}
+.buttonC{
+  background-color: black;
+}
+.textP{
+  font-size: 10px;
+}
