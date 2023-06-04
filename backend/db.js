@@ -378,6 +378,60 @@ app.get('/user/kategorite',(req,res)=>{
   })
 })
 
+/*
+app.get('/produktetUser', (req, res) => {
+  const priceRange = req.query.priceRange;
+
+  let minPrice = 0;
+  let maxPrice = 0;
+
+  switch (priceRange) {
+    case '0-100':
+      maxPrice = 100;
+      break;
+    case '100-200':
+      minPrice = 100;
+      maxPrice = 200;
+      break;
+    case '200-500':
+      minPrice = 200;
+      maxPrice = 500;
+      break;
+    case '1000+':
+      minPrice = 1000;
+      break;
+    default:
+      break;
+  }
+  const sql = `SELECT * FROM products WHERE price >= ? AND price <= ?`;
+  db.query(sql, [minPrice, maxPrice], (err, result) => {
+    if (err) {
+      console.log('Gabim gjatë marrjes së produktit', err);
+      res.status(500).send('Gabim gjatë marrjes së produktit');
+    } else {
+      res.status(200).json(result);
+    }
+  });
+});
+*/
+
+
+app.get('/produktetKompani', (req, res) => {
+  // Merr te gjitha produktet nga tabela "products"
+  const query = 'SELECT * FROM products';
+  db.query(query, (error, results) => {
+    if (error) {
+      console.error('Gabim gjate marrjes se produkteve: ' + error.stack);
+      res.status(500).json({ error: 'Gabim gjate marrjes se produkteve' });
+      return;
+    }
+
+    // Kthe pergjigjen me produktet
+    res.json(results);
+  });
+});
+
+
 app.listen(8081, () => {
   console.log("Running on portt 8081");
 })
