@@ -47,41 +47,41 @@ const Login = () => {
 
     return (
         <div className="login-container">
+         
         <div className="login">
-            <h2 className="textL">Log In</h2>
+            <h2 className="textL">Hyni në llogarinë tuaj</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label htmlFor="email" className="form-label">
-                  Email
+                <label htmlFor="email" className="form-label-email">
+                  Email:
                 </label>
                 <input
                   type="email"
-                  placeholder="Shtyp Emailin tuaj"
+                  placeholder="Email"
                   name="email"
                   value={values.email}
                   onChange={handleInput}
-                  className="form-control rounded-0 w-25"
+                  className="form-control rounded-0 w-25 f1"
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="password" className="form-label">
-                  Password
+                <label htmlFor="password" className=" form-label-password">
+                  Password:
                 </label>
                 <input
                   type="password"
-                  placeholder="Shtyp passwordin tuaj"
+                  placeholder="Fjalëkalimi"
                   name="password"
                   value={values.password}
                   onChange={handleInput}
-                  className="form-control rounded-0  w-25"
+                  className="form-control rounded-0  w-25 f2 "
                 />
               </div>
               <button type="submit" className="buttonL">
                 Log In
               </button>
-              <p className="textP">
-                Pranoni termet tona
-              </p>
+              <p className="textP">Or</p>
+              
               <Link
                 to="/register"
                 className="buttonC"
@@ -89,7 +89,9 @@ const Login = () => {
                 Create Account
               </Link>
             </form>
+            
           </div>
+          
         </div>
       );
     };

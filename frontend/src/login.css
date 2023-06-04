@@ -1,41 +1,98 @@
-.login-container {
-   /*background-image: url(undraw_shopping_app_flsj.svg);*/
-    background-size:510px;
-    background-position: left;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #87CEEB	;
-    height: 100vh;
-  }
-  .login {
-    background-color: white;
-    padding: 3px;
-    width: 85%;
-    height: 90%;
-    background-image: url(Commerce.jpg);
-    background-size: 800px;
-    background-position: right;
-    background-repeat: no-repeat;
-    display: flex;
- 
-    
-  }
 
-  .textL{
-    font-size: 15px;
-  }
- 
-  .form-label{
-    background-color: blueviolet;
-  }
-.buttonL{
-  background-color: black;
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #72A0C1;
 }
-.buttonC{
-  background-color: black;
+
+.login {
+  background-color: white;
+  padding: 3px;
+  width: 85%;
+  height: 90%;
+  background-image: url('Commerce.jpg');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size:contain;
+  
+  
+}
+
+.textL {
+  text-align: left;
+  font-size: 25px;
+  margin-top: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  color:#72A0C1;
+  padding-left: 107px;  
+  padding-top: 50px; 
+  
+    
+}
+
+
+.form-label-password {
+  font-size: 15px;
+  margin-left: 81px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.form-label-email {
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 81px;
+  margin-top: 30px;
+}
+.f1{
+  margin-left: 80px;
+  padding-bottom: 20px;
+  margin-top: 10px;
+
+ }
+.f2{
+ margin-left: 80px;
+ padding-bottom: 40px;
+
+}
+.buttonL{
+  display: block;
+  width:312px;
+  padding: 5px;
+  background-color:#72A0C1;
+  color: white;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-left: 78px;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+.buttonC {
+  display: block;
+  width:312px;
+  padding: 5px;
+  background-color:#9b9fab;
+  color: white;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-left: 78px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttonL:hover,
+.buttonC:hover {
+  background-color: #2774AE;
 }
 .textP{
   font-size: 10px;
+  margin-left: 235px;
 }
