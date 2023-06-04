@@ -46,9 +46,9 @@ const Login = () => {
     
 
     return (
-        <div className="d-flex justify-content-center align-items-center bg-primary vh-100 login-container">
-          <div className="bg-white p-3 rounded w-25">
-            <h2 className="text-center mb-4">Log In</h2>
+        <div className="login-container">
+        <div className="login">
+            <h2 className="textL">Log In</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
@@ -60,7 +60,7 @@ const Login = () => {
                   name="email"
                   value={values.email}
                   onChange={handleInput}
-                  className="form-control rounded-0"
+                  className="form-control rounded-0 w-25"
                 />
               </div>
               <div className="mb-3">
@@ -73,18 +73,18 @@ const Login = () => {
                   name="password"
                   value={values.password}
                   onChange={handleInput}
-                  className="form-control rounded-0"
+                  className="form-control rounded-0  w-25"
                 />
               </div>
-              <button type="submit" className="btn btn-success w-100 rounded-0">
+              <button type="submit" className="buttonL">
                 Log In
               </button>
-              <p className="text-center my-2">
+              <p className="textP">
                 Pranoni termet tona
               </p>
               <Link
                 to="/register"
-                className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"
+                className="buttonC"
               >
                 Create Account
               </Link>
