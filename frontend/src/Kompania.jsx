@@ -34,7 +34,7 @@ const Kompania = () => {
     <div >
   <button style={{ float: 'left' }} onClick={handleLogout}><LogoutOutlined/></button>
   <button onClick={karta}><ShoppingCartOutlined /></button>
-  <h2 className='text-center'>Kompania</h2>   
+  <h2 className='text-center'>Kompaniaa</h2>   
   <h2>Produktet</h2>
   <ul>
         {produktet.map(produkt => (
