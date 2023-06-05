@@ -1,6 +1,7 @@
 import { LogoutOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Kompania = () => {
   const [produktet, setProduktet] = useState([]);
@@ -33,7 +34,7 @@ const Kompania = () => {
   return (
     <div >
   <button style={{ float: 'left' }} onClick={handleLogout}><LogoutOutlined/></button>
-  <button onClick={karta}><ShoppingCartOutlined /></button>
+  <Link to={`/cart/`}><ShoppingCartOutlined/></Link>
   <h2 className='text-center'>Kompaniaa</h2>   
   <h2>Produktet</h2>
   <ul>
@@ -47,7 +48,7 @@ const Kompania = () => {
                   className="produktet_image"
                   style={{ width: '100px', height: '100px' }}
                 />
-                <button onClick={karta}>Shto ne Karte!</button>
+                <Link to={`/cart/` + produkt.id} className='btn btn-primary btn-sm me-2'>Shto ne Karte!</Link>
           </li> 
         ))}
       </ul>
