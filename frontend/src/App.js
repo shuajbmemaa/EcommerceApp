@@ -19,6 +19,9 @@ import EditKategori from './EditKategori';
 import Order from './Order';
 import KategoriteView from './KategoriteView';
 import ProduktetView from './ProduktetView';
+import Cart from './Cart';
+import Kompania from './Kompania';
+import CartView from './CartView';
 
 function App() {
   return (
@@ -41,6 +44,11 @@ function App() {
         <Route path='/kategorite/:id' element={<KategoriteView/>}></Route>
         <Route path='/produktet/:id' element={<ProduktetView/>}></Route>
       </Route>
+      
+        <Route path='/kompani' element={<Kompania/>}></Route>
+        <Route path='/cart' element={<Cart/>}></Route>
+        <Route path='/cart/:id' element={<CartView/>}></Route>
+      
       <Route path='/register' element={<Register/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
     </Routes>
