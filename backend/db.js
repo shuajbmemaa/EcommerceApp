@@ -279,6 +279,15 @@ app.get('/getProduktetView/:id',(req,res)=>{
   })
 })
 
+app.get('/getCartView/:id',(req,res)=>{
+  const id = req.params.id;
+  const sql = "Select id,name,description,price,image_url,stock,category_id,created_at from products where id = ?";
+  db.query(sql,[id],(err,result)=>{
+    if (err) return res.json({ Error: "Error when getting data in sql" })
+    return res.json({ Status: "Success", Result: result })
+  })
+})
+
 app.delete('/deleteCategory/:id', (req, res) => {
   const categoryId = req.params.id;
   const sql = "DELETE FROM categories WHERE id = ?";
