@@ -24,7 +24,7 @@ const Register = () => {
         .then(res => {
             console.log(res);
             navigate('/login')
-            toast.warn('Ju lutem vazhdoni ne log in dhe prisni deri te merrni rolin tuaj')
+            toast.warn('Pas disa minutave llogaria juaj do të jetë aktive!')
         }) 
         .catch(err => console.log(err))
     }

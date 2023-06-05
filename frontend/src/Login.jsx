@@ -37,7 +37,7 @@ const Login = () => {
             if(res.data.Login){
                 navigate('/')
             }else{
-                toast.error("Te dhenat nuk jane te plotesuara si duhen !",{position:toast.POSITION.TOP_RIGHT})
+                toast.error("Të dhenat nuk janë plotësuar si duhet!",{position:toast.POSITION.TOP_RIGHT})
             }
         })
         .then(err => console.log(err))
