@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import {toast} from 'react-toastify'
+import './register.css'
 
 const Register = () => {
 
@@ -30,28 +31,46 @@ const Register = () => {
 
 
   return (
-    <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
-        <div className='bg-white p-3 rounded w-25'>
-        <h2>Sign Up</h2>
+    <div className='register-container'>
+        <div className='register'>
+        <h2 className="textS">Krijo llogarinë tënde</h2>
         <form onSubmit={handleSubmit}>
             <div className='mb-3'>
-                <label htmlFor="name"><strong>Name</strong></label>
-                <input type="text" placeholder='Shtyp Emrin tuaj' name='name'
-               onChange={handleInput} className='form-control rounded-0' />
+            <label htmlFor="emri" className="form-label-emri">
+                  Emri:
+                </label>
+                <input type="text" placeholder='Emri' name='name'
+               onChange={handleInput} className='form-control rounded-0 w-25 f1' />
             </div>
             <div className='mb-3'>
-                <label htmlFor="email"><strong>E-maili</strong></label>
-                <input type="email" placeholder='Shtyp emailin tuaj' name='email'
-                onChange={handleInput} className='form-control rounded-0' />
-            </div>
-            <div className='mb-3'>
-                <label htmlFor="password"><strong>Password</strong></label>
-                <input type="password" placeholder='Shtyp passwordisn tuaj' name='password'
-                onChange={handleInput} className='form-control rounded-0' />
-            </div>
-            <button type='submit' className='btn btn-success w-100 rounded-0'>Sign Up</button>
-            <p>You agree our terms and policies</p>
-            <Link to='/login' className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>Log In</Link>
+            <label htmlFor="email" className="form-label-email">
+                  Email:
+                </label>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  value={values.email}
+                  onChange={handleInput}
+                  className="form-control rounded-0 w-25 f2"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="password" className=" form-label-password">
+                Fjalëkalimi:
+                </label>
+                <input
+                  type="password"
+                  placeholder="Fjalëkalimi"
+                  name="password"
+                  value={values.password}
+                  onChange={handleInput}
+                  className="form-control rounded-0 w-25 f3 "
+                />
+              </div>
+            <button type='submit' className='buttonR'>Regjistrohu</button>
+            <p className="textP">ose</p>
+            <Link to='/login' className='buttonK'>Kyçuni</Link>
         </form>
         </div>
 

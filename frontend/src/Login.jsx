@@ -66,7 +66,7 @@ const Login = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="password" className=" form-label-password">
-                  Password:
+                Fjalëkalimi:
                 </label>
                 <input
                   type="password"
@@ -78,15 +78,15 @@ const Login = () => {
                 />
               </div>
               <button type="submit" className="buttonL">
-                Log In
+              Kyçuni
               </button>
-              <p className="textP">Or</p>
+              <p className="textP">ose</p>
               
               <Link
                 to="/register"
                 className="buttonC"
               >
-                Create Account
+               Regjistrohu
               </Link>
             </form>
             
