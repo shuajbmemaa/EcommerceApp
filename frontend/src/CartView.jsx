@@ -36,7 +36,7 @@ const CartView = () => {
             <p className="card-price">Cmimi: {karta.price}</p>
             <p className="card-stock">Stock: {karta.stock}</p>
             <p className="card-category">Kategori: {karta.category_id}</p>
-            <p className="card-created">Krijuar me: {karta.created_at}</p>
+            <p className="card-created">Krijuar mee: {karta.created_at}</p>
           </div>
           <Link to="/" className="btn btn-primary">
             Kthehu
