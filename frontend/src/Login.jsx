@@ -37,7 +37,7 @@ const Login = () => {
             if(res.data.Login){
                 navigate('/')
             }else{
-                toast.error("Te dhenat nuk jane te plotesuara si duhen !",{position:toast.POSITION.TOP_RIGHT})
+                toast.error("Të dhenat nuk janë plotësuar si duhet!",{position:toast.POSITION.TOP_RIGHT})
             }
         })
         .then(err => console.log(err))
@@ -66,7 +66,7 @@ const Login = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="password" className=" form-label-password">
-                  Password:
+                Fjalëkalimi:
                 </label>
                 <input
                   type="password"
@@ -78,15 +78,15 @@ const Login = () => {
                 />
               </div>
               <button type="submit" className="buttonL">
-                Log In
+              Kyçuni
               </button>
-              <p className="textP">Or</p>
+              <p className="textP">ose</p>
               
               <Link
                 to="/register"
                 className="buttonC"
               >
-                Create Account
+               Regjistrohu
               </Link>
             </form>
             

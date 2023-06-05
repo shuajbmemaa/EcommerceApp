@@ -1,0 +1,105 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #72A0C1;
+  }
+  .register {
+    background-color: white;
+    padding: 3px;
+    width: 85%;
+    height: 90%;
+    background-image: url('Commerce.jpg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size:contain;
+  }
+  .textS {
+    text-align: left;
+    font-size: 25px;
+    margin-top: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color:#72A0C1;
+    padding-left: 107px;  
+    padding-top: 30px; 
+  }
+
+  .form-label-emri {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 81px;
+    margin-top: 20px;
+  }
+
+  .f1{
+    margin-left: 80px;
+    padding-bottom: 20px;
+  
+   }
+   .form-label-email {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 81px;
+    margin-top: 15px;
+  }
+  .f2{
+    margin-left: 80px;
+    padding-bottom: 40px;
+   
+   }
+   .form-label-password {
+    font-size: 15px;
+    margin-left: 81px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .f3{
+    margin-left: 80px;
+    padding-bottom: 40px;
+
+   
+   }
+
+   .buttonR{
+    display: block;
+    width:312px;
+    padding: 5px;
+    background-color:#72A0C1;
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-left: 78px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  .buttonK {
+    display: block;
+    width:312px;
+    padding: 5px;
+    background-color:#9b9fab;
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-left: 78px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .buttonR:hover,
+  .buttonK:hover {
+    background-color: #2774AE;
+  }
+  .textP{
+    font-size: 10px;
+    margin-left: 228px;
+  }
+  
+  
