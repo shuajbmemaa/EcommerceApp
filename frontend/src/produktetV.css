@@ -1,0 +1,28 @@
+.table-container {
+    margin: 20px;
+  }
+  
+  .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-container td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .produktet_image {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-left: 20px;
+   
+  }
+  

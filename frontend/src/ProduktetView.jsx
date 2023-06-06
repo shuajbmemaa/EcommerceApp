@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import './produktetV.css'
 
 const ProduktetView = () => {
     const [produktet, setProduktet] = useState([]);
@@ -20,7 +21,8 @@ const ProduktetView = () => {
           .catch(err => console.log(err));
       },[]);
         return (
-          <div>
+          <div className="table-container">
+            <table>
         <tbody>
                 {produktet.map((produkti, index) => (
                   <tr key={index}>
@@ -35,12 +37,15 @@ const ProduktetView = () => {
                     <td>Stock :{produkti.stock}</td>
                     <td>Kategori :{produkti.category_id}</td>
                     <td>Krijuar me :{produkti.created_at}</td>
-                    <Link to="/produktet" className='btn btn-primary'>
+                    <td>
+                    <Link to="/produktet" className='button'>
                         Kthehu te Produktet
                     </Link>
+                    </td>
                   </tr>
                 ))}
               </tbody>
+              </table>
               </div>
         )
                   }
