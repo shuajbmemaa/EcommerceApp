@@ -9,6 +9,11 @@ const User = () => {
   const [produktet, setProduktet] = useState([]);
   const [kategoriteUser, setKategoriteUser] = useState([]);
   const [kategoriaZgjedhur, setKategoriaZgjedhur] = useState(null);
+  const [priceRange, setPriceRange] = useState('');
+
+  const handlePriceRangeChange = (e) => {
+    setPriceRange(e.target.value);
+  };
 
   useEffect(() => {
     axios.get('http://localhost:8081/user/kategorite')
@@ -36,6 +41,16 @@ const User = () => {
         window.location.reload();
       })
       .catch(err => console.log(err));
+  };
+
+  const handlePriceFilter = async (range) => {
+    try {
+      const response = await axios.get(`http://localhost:8081/produktetUser?priceRange=${range}`);
+      setProduktet(response.data);
+      setPriceRange(range);
+    } catch (error) {
+      console.log('Gabim gjatë filtrimit të produktit', error);
+    }
   };
 
   const handleKategoriaClick = (kategoriaId) => {
@@ -88,6 +103,12 @@ const User = () => {
             </li>
           ))}
         </ul>
+        <div>
+        <button onClick={() => handlePriceFilter('0-100')}>0-100</button>
+        <button onClick={() => handlePriceFilter('100-200')}>100-200</button>
+        <button onClick={() => handlePriceFilter('200-500')}>200-500</button>
+        <button onClick={() => handlePriceFilter('1000+')}>&gt;1000</button>
+      </div>
 
         <ul style={{ listStyleType: 'none', padding: '0' }}>
           {produktetFiltruar.map(product => (
