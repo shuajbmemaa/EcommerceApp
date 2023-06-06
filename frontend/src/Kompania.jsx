@@ -1,7 +1,10 @@
+import { Badge, Container, Dropdown, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { LogoutOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import './CategoriesStyle.css';
 
 const Kompania = () => {
   const [produktet, setProduktet] = useState([]);
@@ -33,8 +36,33 @@ const Kompania = () => {
 
   return (
     <div >
-  <button style={{ float: 'left' }} onClick={handleLogout}><LogoutOutlined/></button>
-  <Link to={`/cart/`}><ShoppingCartOutlined/></Link>
+          <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
+      <Container>
+        <Navbar.Brand>
+          <h1 style={{ color: 'cyan', fontSize: '28px', fontWeight: 'bold' }}>Shopping cart</h1>
+        </Navbar.Brand>
+        <Navbar.Text className="search">
+          <FormControl style={{ width: 500 }} placeholder="Shiko per produkte" className="m-auto" />
+        </Navbar.Text>
+        <Nav className="ms-auto">
+          <li onClick={handleLogout} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+            <LogoutOutlined style={{ fontSize: '20px', marginRight: '5px', color: 'white' }} />
+            <span style={{ fontSize: '16px', color: 'white' }}>Logout</span>
+          </li>
+          <li>
+            <Dropdown alignRight>
+              <Dropdown.Toggle variant="success">
+                <FaShoppingCart color="white" fontSize="25px" />
+                <Badge style={{ marginLeft: '5px' }}>{0}</Badge>
+              </Dropdown.Toggle>
+              <Dropdown.Menu style={{ minWidth: 370 }}>
+                <span style={{ padding: '10px', fontSize: '16px' }}>Karte eshte zbrazet</span>
+              </Dropdown.Menu>
+            </Dropdown>
+          </li>
+        </Nav>
+      </Container>
+    </Navbar>
   <h2 className='text-center'>Kompaniaa</h2>   
   <h2>Produktet</h2>
   <ul>
