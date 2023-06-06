@@ -1,7 +1,21 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 const Order = () => {
     const [data,setData]=useState([])
+
+    useEffect(()=>{
+      axios.get('http://localhost:8081/getOrders')
+      .then(res=>{
+        if(res.data.Status === "Success"){
+          console.log(res.data.Result);
+          setData(res.data.Result)
+        }else{
+          alert("Erorr")
+        }
+      })
+      .catch(err=>console.log(err))
+      },[])
   return (
     <div className='px-5 py-3'>
         <div className='d-flex justify-content-center'>
