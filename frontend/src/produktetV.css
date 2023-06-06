@@ -1,15 +1,17 @@
 .table-container {
     margin: 20px;
+    margin-left: 410px;
   }
   
   .table-container table {
-    width: 100%;
+    width: 50%;
     border-collapse: collapse;
   }
   
   .table-container td {
     padding: 8px;
     border: 1px solid #ddd;
+    display: block;
   }
   
   .produktet_image {
@@ -22,7 +24,7 @@
     color: white;
     padding: 10px 20px;
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 100px;
    
   }
   

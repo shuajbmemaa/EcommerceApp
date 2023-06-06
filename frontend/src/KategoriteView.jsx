@@ -34,7 +34,7 @@ const KategoriteView = () => {
                   <td>Pershkrimi: {kategori.description}</td>
                   <td>
                     <Link to="/kategorite" className="button">
-                      Kthehu te Kategorite
+                      Kthehu tek kategoritë 
                     </Link>
                   </td>
                 </tr>

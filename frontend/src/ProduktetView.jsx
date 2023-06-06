@@ -26,7 +26,7 @@ const ProduktetView = () => {
         <tbody>
                 {produktet.map((produkti, index) => (
                   <tr key={index}>
-                    <td>Id :{produkti.id}</td>
+                    <td >Id :{produkti.id}</td>
                     <td>Emri :{produkti.name}</td>
                     <td>Pershkrimi :{produkti.description}</td>
                     <td>Cmimi :{produkti.price}</td>
@@ -39,7 +39,7 @@ const ProduktetView = () => {
                     <td>Krijuar me :{produkti.created_at}</td>
                     <td>
                     <Link to="/produktet" className='button'>
-                        Kthehu te Produktet
+                        Kthehu tek produktet
                     </Link>
                     </td>
                   </tr>

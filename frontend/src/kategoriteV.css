@@ -7,16 +7,6 @@
     border-collapse: collapse;
   }
   
-  .table-container th,
-  .table-container td {
-    padding: 8px;
-    border: 1px solid #ccc;
-  }
-  
-  .table-container th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
   
   .button {
     display: inline-block;
