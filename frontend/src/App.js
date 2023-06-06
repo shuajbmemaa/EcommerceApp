@@ -22,6 +22,9 @@ import ProduktetView from './ProduktetView';
 import Cart from './Cart';
 import Kompania from './Kompania';
 import CartView from './CartView';
+import CartUser from './CartUser';
+import User from './User';
+import CartViewUser from './CartViewUser';
 
 function App() {
   return (
@@ -48,6 +51,10 @@ function App() {
         <Route path='/kompani' element={<Kompania/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
         <Route path='/cart/:id' element={<CartView/>}></Route>
+
+        <Route path='/user' element={<User/>}></Route>
+        <Route path='/cartUser' element={<CartUser/>}></Route>
+        <Route path='/cartUser/:id' element={<CartViewUser/>}></Route>
       
       <Route path='/register' element={<Register/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
