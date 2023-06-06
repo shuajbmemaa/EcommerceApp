@@ -288,6 +288,21 @@ app.get('/getCartView/:id',(req,res)=>{
   })
 })
 
+app.post('/createOrder',(req,res)=>{
+  const { user_id, order_date, name, address, city, country, postal_code, status } = req.body;
+  const sql="INSERT into orders(`user_id`,`order_date`,`name`,`address`,`city`,`country`,`postal_code`,`status`) VALUES(?)";
+  const values = [user_id, order_date, name, address, city, country, postal_code, status];
+
+  db.query(sql,[values],(err,results)=>{
+    if(err){
+      console.log(err);
+      res.json({status:'Error'})
+    }else{
+      res.json({ status: 'Success' });
+    }
+  })
+})
+
 app.delete('/deleteCategory/:id', (req, res) => {
   const categoryId = req.params.id;
   const sql = "DELETE FROM categories WHERE id = ?";
