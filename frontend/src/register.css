@@ -30,12 +30,14 @@
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 81px;
-    margin-top: 20px;
+    margin-top: 15px;
+    
   }
 
   .f1{
     margin-left: 80px;
     padding-bottom: 20px;
+    padding-top: 50px;
   
    }
    .form-label-email {
@@ -43,20 +45,23 @@
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 81px;
     margin-top: 15px;
+
   }
   .f2{
     margin-left: 80px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
    
    }
    .form-label-password {
     font-size: 15px;
     margin-left: 81px;
     font-family: Arial, Helvetica, sans-serif;
+    
   }
   .f3{
     margin-left: 80px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
+    
 
    
    }

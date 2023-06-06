@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import './kategoriteV.css'
 
 
 const KategoriteView = () => {
@@ -22,23 +23,26 @@ const KategoriteView = () => {
       },[]);
 
 
-  return (
-    <div>
-    <tbody>
-            {category.map((kategori, index) => (
-              <tr key={index}>
-                <td>Id :{kategori.id}</td>
-                <td>Emri :{kategori.name}</td>
-                <td>Pershkrimi :{kategori.description}</td>
-                <Link to="/kategorite" className='btn btn-primary'>
-                    Kthehu te Kategorite
-                </Link>
-              </tr>
-            ))}
-          </tbody>
-          </div>
-  )
-            }
-
-
-export default KategoriteView
+      return (
+        <div className="table-container">
+          <table>
+            <tbody>
+              {category.map((kategori, index) => (
+                <tr key={index}>
+                  <td>Id: {kategori.id}</td>
+                  <td>Emri: {kategori.name}</td>
+                  <td>Pershkrimi: {kategori.description}</td>
+                  <td>
+                    <Link to="/kategorite" className="button">
+                      Kthehu te Kategorite
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )
+    }
+    
+    export default KategoriteView;
