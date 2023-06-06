@@ -28,7 +28,8 @@ const CartView = () => {
           status: order.status
         })
         .then(res => {
-          if (res.data.Status === 'Success') {
+          console.log(res.data);
+          if (res.data.status === 'Success') {
             toast.success('Order done!')
           } else {
             alert('Gabim gjatë regjistrimit të porosisë');
