@@ -297,9 +297,18 @@ app.get('/getCartView/:id',(req,res)=>{
 })
 
 app.post('/createOrder',(req,res)=>{
-  const { user_id, order_date, name, address, city, country, postal_code, status } = req.body;
+  
   const sql="INSERT into orders(`user_id`,`order_date`,`name`,`address`,`city`,`country`,`postal_code`,`status`) VALUES(?)";
-  const values = [user_id, order_date, name, address, city, country, postal_code, status];
+  const values = [
+    req.body.user_id,
+    req.body.order_date,
+    req.body.name,
+    req.body.address,
+    req.body.city,
+    req.body.country,
+    req.body.postal_code,
+    req.body.status
+  ]
 
   db.query(sql,[values],(err,results)=>{
     if(err){
