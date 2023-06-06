@@ -262,6 +262,14 @@ app.get('/getCategories', (req, res) => {
   });
 });
 
+app.get('/getOrders',(req,res)=>{
+  const sql="Select * from orders";
+  db.query(sql,(err,result)=>{
+    if(err) return res.json({Error:"Gabim gjate marrjes se orderave"})
+    return res.json({Status:"Success",Result:result});
+  })
+})
+
 app.get('/getCategoryView/:id',(req,res)=>{
   const id = req.params.id;
   const sql = "Select id,name,description from categories where id = ?";
