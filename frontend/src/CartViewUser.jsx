@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import './CartView.css'
 import { toast } from 'react-toastify';
 
-const CartView = () => {
+const CartViewUser = () => {
     const [view, setView] = useState([]);
     const [order, setOrder] = useState({
       name: '',
@@ -138,4 +138,4 @@ const CartView = () => {
   )
 }
 
-export default CartView
+export default CartViewUser

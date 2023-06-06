@@ -4,16 +4,12 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { LogoutOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import './CategoriesStyle.css';
+import { Link } from 'react-router-dom';
 
 const User = () => {
   const [produktet, setProduktet] = useState([]);
   const [kategoriteUser, setKategoriteUser] = useState([]);
   const [kategoriaZgjedhur, setKategoriaZgjedhur] = useState(null);
-  const [priceRange, setPriceRange] = useState('');
-
-  const handlePriceRangeChange = (e) => {
-    setPriceRange(e.target.value);
-  };
 
   useEffect(() => {
     axios.get('http://localhost:8081/user/kategorite')
@@ -61,6 +57,10 @@ const User = () => {
     ? produktet.filter(product => product.category_id === kategoriaZgjedhur)
     : produktet;
 
+    function karta(){
+      setKarte(karte+1);
+    }
+  
   return (
     <div>
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
@@ -123,6 +123,7 @@ const User = () => {
                   style={{ width: '100px', height: '100px' }}
                 />
               </span>
+              <Link to={`/cart/` + product.id} className='btn btn-primary btn-sm me-2'>Shto ne Karte!</Link>
             </li>
           ))}
         </ul>
