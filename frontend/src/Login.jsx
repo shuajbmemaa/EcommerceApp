@@ -34,6 +34,15 @@ const Login = () => {
 
     const handleSubmit=(event) =>{
         event.preventDefault();
+        const emailRegex = /^\S+@\S+\.\S+$/;
+        if (!values.email || !emailRegex.test(values.email)) {
+          toast.error('Ju lutem shkruani një email të vlefshëm!', { position: toast.POSITION.TOP_RIGHT });
+          return;
+        }
+        //if (!values.password || values.password.length < 6) {
+         // toast.error('Fjalëkalimi duhet të ketë të paktën 6 karaktere!', { position: toast.POSITION.TOP_RIGHT });
+          //return;
+        //}
         axios.post('http://localhost:8081/login',values)
         .then(res => {
             if(res.data.Login){

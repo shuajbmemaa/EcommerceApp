@@ -20,6 +20,23 @@ const Register = () => {
 
     const handleSubmit=async(event) =>{
         event.preventDefault();
+       /* const nameRegex = /^[a-zA-Z\s]*$/;
+        if (!values.name || !nameRegex.test(values.name) || values.name.length < 3) {
+          toast.error('Ju lutem shkruani një emër të vlefshëm (të paktën 3 karaktere dhe pa numra)!', {
+            position: toast.POSITION.TOP_RIGHT
+          });
+          return;
+        }*/
+        const emailRegex = /^\S+@\S+\.\S+$/;
+        if (!values.email || !emailRegex.test(values.email)) {
+          toast.error('Ju lutem shkruani një email të vlefshëm!', { position: toast.POSITION.TOP_RIGHT });
+          return;
+        }
+        if (!values.password || values.password.length < 6) {
+          toast.error('Fjalëkalimi duhet të ketë të paktën 6 karaktere!', { position: toast.POSITION.TOP_RIGHT });
+          return;
+        }
+        
         axios.post('http://localhost:8081/register',values)
         .then(res => {
             console.log(res);
@@ -35,14 +52,14 @@ const Register = () => {
         <div className='register'>
         <h2 className="textS">Krijo llogarinë tënde</h2>
         <form onSubmit={handleSubmit}>
-            <div className='mb-3'>
+            <div className='mb-3a'>
             <label htmlFor="emri" className="form-label-emri">
                   Emri:
                 </label>
                 <input type="text" placeholder='Emri' name='name'
                onChange={handleInput} className='form-control rounded-0 w-25 f1' />
             </div>
-            <div className='mb-3'>
+            <div className='mb-3b'>
             <label htmlFor="email" className="form-label-email">
                   Email:
                 </label>
@@ -55,7 +72,7 @@ const Register = () => {
                   className="form-control rounded-0 w-25 f2"
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-3c">
                 <label htmlFor="password" className=" form-label-password">
                 Fjalëkalimi:
                 </label>
