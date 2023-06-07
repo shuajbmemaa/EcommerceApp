@@ -43,7 +43,6 @@ const User = () => {
     try {
       const response = await axios.get(`http://localhost:8081/produktetUser?priceRange=${range}`);
       setProduktet(response.data);
-      setPriceRange(range);
     } catch (error) {
       console.log('Gabim gjatë filtrimit të produktit', error);
     }
@@ -56,10 +55,6 @@ const User = () => {
   const produktetFiltruar = kategoriaZgjedhur
     ? produktet.filter(product => product.category_id === kategoriaZgjedhur)
     : produktet;
-
-    function karta(){
-      setKarte(karte+1);
-    }
   
   return (
     <div>
