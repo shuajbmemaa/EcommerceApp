@@ -83,7 +83,7 @@ const User = () => {
                 <Badge style={{ marginLeft: '5px' }}>{0}</Badge>
               </Dropdown.Toggle>
               <Dropdown.Menu style={{ minWidth: 370 }}>
-                <span style={{ padding: '10px', fontSize: '16px' }}>Karte eshte zbrazet</span>
+                <span style={{ padding: '10px', fontSize: '16px' }}>Shporta është e zbrazët!</span>
               </Dropdown.Menu>
             </Dropdown>
           </li>
@@ -123,7 +123,7 @@ const User = () => {
                   style={{ width: '100px', height: '100px' }}
                 />
               </span>
-              <Link to={`/cart/` + product.id} className='btn btn-primary btn-sm me-2'>Shto ne Karte!</Link>
+              <Link to={`/cart/` + product.id} className='btn btn-primary btn-sm me-2'>Shto ne shportë!</Link>
             </li>
           ))}
         </ul>

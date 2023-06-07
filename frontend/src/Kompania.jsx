@@ -56,7 +56,7 @@ const Kompania = () => {
                 <Badge style={{ marginLeft: '5px' }}>{0}</Badge>
               </Dropdown.Toggle>
               <Dropdown.Menu style={{ minWidth: 370 }}>
-                <span style={{ padding: '10px', fontSize: '16px' }}>Karta është zbrazët!</span>
+                <span style={{ padding: '10px', fontSize: '16px' }}>Shporta është e zbrazët!</span>
               </Dropdown.Menu>
             </Dropdown>
           </li>
@@ -76,7 +76,7 @@ const Kompania = () => {
                   className="produktet_image"
                   style={{ width: '100px', height: '100px' }}
                 />
-                <Link to={`/cart/` + produkt.id} className='btn btn-primary btn-sm me-2'>Shto ne kartë!</Link>
+                <Link to={`/cart/` + produkt.id} className='btn btn-primary btn-sm me-2'>Shto në shportë!</Link>
           </li> 
         ))}
       </ul>
