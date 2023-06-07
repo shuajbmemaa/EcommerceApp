@@ -14,6 +14,11 @@ const CartView = () => {
       postalCode: '',
       status: 'Pending'
     });
+    const [review, setReview] = useState({
+      name: '',
+      rating: 0,
+      comment: ''
+    });
 
     const handleSubmit = e => {
       e.preventDefault();
