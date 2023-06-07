@@ -14,6 +14,30 @@ const CartView = () => {
       postalCode: '',
       status: 'Pending'
     });
+    const [review, setReview] = useState({
+      name: '',
+      rating: 0,
+      comment: ''
+    });
+
+    const handleReviewSubmit = e => {
+      e.preventDefault();
+      axios.post('http://localhost:8081/createReview', {
+        product_id: id,
+        name: review.name,
+        rating: review.rating,
+        comment: review.comment,
+        created_at: new Date()
+      })
+        .then(res => {
+          if (res.data.status === 'Success') {
+            toast.success('Review added!')
+          } else {
+            alert('Gabim gjate shtimit te review');
+          }
+        })
+        .catch(err => console.log(err));
+    };
 
     const handleSubmit = e => {
       e.preventDefault();
@@ -138,6 +162,39 @@ const CartView = () => {
           />
         </div>
         <button type="submit" className="buttonn">Porosit</button>
+      </form>
+      <h2 className="h2">Shto një review</h2>
+      <form className="form" onSubmit={handleReviewSubmit}>
+        <div className="form-group">
+          <label htmlFor="reviewName">Emri</label>
+          <input
+            type="text"
+            id="reviewName"
+            value={review.name}
+            onChange={e => setReview({ ...review, name: e.target.value })}
+            className="input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="reviewRating">Vlerësimi</label>
+          <input
+            type="number"
+            id="reviewRating"
+            value={review.rating}
+            onChange={e => setReview({ ...review, rating: e.target.value })}
+            className="input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="reviewComment">Komenti</label>
+          <textarea
+            id="reviewComment"
+            value={review.comment}
+            onChange={e => setReview({ ...review, comment: e.target.value })}
+            className="textarea"
+          ></textarea>
+        </div>
+        <button type="submit" className="buttonn">Shto Review</button>
       </form>
     
     </div>
