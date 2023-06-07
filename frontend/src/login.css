@@ -47,7 +47,7 @@
 }
 .f1{
   margin-left: 80px;
-  padding-bottom: 20px;
+  padding-bottom: 38px;
   margin-top: 10px;
 
  }
@@ -55,6 +55,10 @@
  margin-left: 80px;
  padding-bottom: 40px;
 
+}
+
+.mb-3{
+  padding-bottom: 15px;
 }
 .buttonL{
   display: block;

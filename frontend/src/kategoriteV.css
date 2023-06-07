@@ -5,7 +5,7 @@
   .table-container table {
     width: 100%;
     border-collapse: collapse;
-  }
+    }
   
   
   .button {
@@ -15,6 +15,7 @@
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
+    margin-left: 100px;
   }
   
   .button:hover {

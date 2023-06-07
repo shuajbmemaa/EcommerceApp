@@ -65,18 +65,18 @@ const CartView = () => {
           <div className="card-details">
             <h3 className="card-title">{karta.name}</h3>
             <p className="card-description">{karta.description}</p>
-            <p className="card-price">Cmimi: {karta.price}</p>
+            <p className="card-price">Çmimi: {karta.price}</p>
             <p className="card-stock">Stock: {karta.stock}</p>
             <p className="card-category">Kategori: {karta.category_id}</p>
-            <p className="card-created">Krijuar mee: {karta.created_at}</p>
+            <p className="card-created">Krijuar me: {karta.created_at}</p>
           </div>
           <Link to="/" className="btn btn-primary">
             Kthehu
           </Link>
         </div>
       ))}
-    <h2>Plotësoni të dhënat e porosisë</h2>
-      <form onSubmit={handleSubmit}>
+    <h2 className="h2">Plotësoni të dhënat e porosisë</h2>
+      <form className="form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Emri</label>
           <input
@@ -84,6 +84,7 @@ const CartView = () => {
             id="name"
             value={order.name}
             onChange={e => setOrder({ ...order, name: e.target.value })}
+            className="input"
           />
         </div>
         <div className="form-group">
@@ -93,6 +94,7 @@ const CartView = () => {
             id="address"
             value={order.address}
             onChange={e => setOrder({ ...order, address: e.target.value })}
+            className="input"
           />
         </div>
         <div className="form-group">
@@ -102,6 +104,7 @@ const CartView = () => {
             id="city"
             value={order.city}
             onChange={e => setOrder({ ...order, city: e.target.value })}
+            className="input"
           />
         </div>
         <div className="form-group">
@@ -111,6 +114,7 @@ const CartView = () => {
             id="country"
             value={order.country}
             onChange={e => setOrder({ ...order, country: e.target.value })}
+            className="input"
           />
         </div>
         <div className="form-group">
@@ -120,6 +124,7 @@ const CartView = () => {
             id="postalCode"
             value={order.postalCode}
             onChange={e => setOrder({ ...order, postalCode: e.target.value })}
+            className="input"
           />
         </div>
         <div className="form-group">
@@ -129,9 +134,10 @@ const CartView = () => {
             id="status"
             value={order.status}
             onChange={e => setOrder({ ...order, status: e.target.value })}
+            className="input"
           />
         </div>
-        <button type="submit">Porosit</button>
+        <button type="submit" className="buttonn">Porosit</button>
       </form>
     
     </div>
