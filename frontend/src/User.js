@@ -61,24 +61,24 @@ const User = () => {
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
       <Container>
         <Navbar.Brand>
-          <h1 style={{ color: 'cyan', fontSize: '28px', fontWeight: 'bold' }}>Shopping cart</h1>
+          <h1 className="shop">TheVirtualMall</h1>
         </Navbar.Brand>
         <Navbar.Text className="search">
-          <FormControl style={{ width: 500 }} placeholder="Shiko per produkte" className="m-auto" />
+          <FormControl style={{ width: 500 }} placeholder="Kërko produktin!" className="m-auto" />
         </Navbar.Text>
         <Nav className="ms-auto">
           <li onClick={handleLogout} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
             <LogoutOutlined style={{ fontSize: '20px', marginRight: '5px', color: 'white' }} />
-            <span style={{ fontSize: '16px', color: 'white' }}>Logout</span>
+            <span style={{ fontSize: '16px', color: 'white',paddingRight:'10px' }}>Logout</span>
           </li>
           <li>
             <Dropdown alignRight>
-              <Dropdown.Toggle variant="success">
+              <Dropdown.Toggle variant="secondary">
                 <FaShoppingCart color="white" fontSize="25px" />
-                <Badge style={{ marginLeft: '5px' }}>{0}</Badge>
+                <Badge style={{ marginLeft: '5px', color: 'white' }}>{0}</Badge>
               </Dropdown.Toggle>
               <Dropdown.Menu style={{ minWidth: 370 }}>
-                <span style={{ padding: '10px', fontSize: '16px' }}>Karte eshte zbrazet</span>
+                <span style={{ padding: '10px', fontSize: '16px' }}>Shporta është e zbrazët!</span>
               </Dropdown.Menu>
             </Dropdown>
           </li>
@@ -86,7 +86,8 @@ const User = () => {
       </Container>
     </Navbar>
       <Container>
-        <h2 style={{ marginTop: '20px', textAlign: 'center' }}>Kategoritë</h2>
+      <div className="kategoria-container">
+        <h2 className="kategoria">Kategoritë</h2>
         <ul className="categories-list">
           {kategoriteUser.map(kategori => (
             <li
@@ -98,30 +99,33 @@ const User = () => {
             </li>
           ))}
         </ul>
-        <div>
+        </div>
+        <div className="button-container">
+          <h2 className="filter">Kërko sipas çmimit</h2>
         <button onClick={() => handlePriceFilter('0-100')}>0-100</button>
         <button onClick={() => handlePriceFilter('100-200')}>100-200</button>
         <button onClick={() => handlePriceFilter('200-500')}>200-500</button>
         <button onClick={() => handlePriceFilter('1000+')}>&gt;1000</button>
       </div>
 
-        <ul style={{ listStyleType: 'none', padding: '0' }}>
-          {produktetFiltruar.map(product => (
-            <li key={product.id} style={{ marginBottom: '10px' }}>
-              <span style={{ marginRight: '10px' }}>{product.name}</span>
-              <span style={{ marginRight: '10px' }}>{product.price}</span>
-              <span>
-                <img
-                  src={`http://localhost:8081/images/${product.image_url}`}
-                  alt=""
-                  className="produktet_image"
-                  style={{ width: '100px', height: '100px' }}
-                />
-              </span>
-              <Link to={`/cart/` + product.id} className='btn btn-primary btn-sm me-2'>Shto ne Karte!</Link>
-            </li>
-          ))}
-        </ul>
+      <ul className="product-list">
+  {produktetFiltruar.map(product => (
+    <li key={product.id}>
+        <span>
+        <img
+          src={`http://localhost:8081/images/${product.image_url}`}
+          alt=""
+          className="product-image"
+        />
+      </span>
+      <span className="product-name">{product.name}</span>
+      <span className="product-price">{product.price}€</span>
+    
+      <Link to={`/cart/${product.id}`} className="product-link">Shto në shportë!</Link>
+    </li>
+  ))}
+</ul>
+
       </Container>
     </div>
   );
