@@ -419,6 +419,28 @@ app.get('/user/kategorite',(req,res)=>{
   })
 })
 
+app.post('/createReview', (req, res) => {
+  const { product_id, name, rating, comment, created_at } = req.body;
+
+  // Kryeni validimin e të dhënave
+  if (!product_id || !name || !rating || !comment || !created_at) {
+    return res.status(400).json({ error: 'Të dhënat janë të pasakta' });
+  }
+
+  // Kryeni ndonjë validim shtesë sipas nevojës
+
+  // Kryeni INSERT në tabelën "reviews" në MySQL
+  const query = 'INSERT INTO reviews (product_id, name, rating, comment, created_at) VALUES (?, ?, ?, ?, ?)';
+  db.query(query, [product_id, name, rating, comment, created_at], (error, results) => {
+    if (error) {
+      console.error('Gabim gjatë shtimit të review: ' + error.stack);
+      res.status(500).json({ error: 'Gabim gjatë shtimit të review' });
+      return;
+    }
+    res.json({ status: 'Success' });
+  });
+});
+
 /*
 app.get('/produktetUser', (req, res) => {
   const priceRange = req.query.priceRange;
