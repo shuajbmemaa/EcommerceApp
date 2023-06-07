@@ -36,13 +36,15 @@ const Login = () => {
         event.preventDefault();
         const emailRegex = /^\S+@\S+\.\S+$/;
         if (!values.email || !emailRegex.test(values.email)) {
-          toast.error('Ju lutem shkruani një email të vlefshëm!', { position: toast.POSITION.TOP_RIGHT });
+          toast.error('Email i pavlefshëm!', { position: toast.POSITION.TOP_RIGHT });
           return;
         }
-        //if (!values.password || values.password.length < 6) {
-         // toast.error('Fjalëkalimi duhet të ketë të paktën 6 karaktere!', { position: toast.POSITION.TOP_RIGHT });
-          //return;
-        //}
+        /*const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+        if (!values.password || !passwordRegex.test(values.password)) {
+          toast.error('Fjalëkalim i pavlefshëm!', { position: toast.POSITION.TOP_RIGHT });
+          return;
+        }*/
+        
         axios.post('http://localhost:8081/login',values)
         .then(res => {
             if(res.data.Login){

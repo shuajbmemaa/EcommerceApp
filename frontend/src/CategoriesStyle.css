@@ -1,19 +1,131 @@
+.kategoria-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.kategoria {
+  font-size: 18px;
+  font-weight: 15px;
+  margin-left: 15px;
+}
+
 .categories-list {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-  }
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 25px; 
+  margin-top: 10px;
+  padding-top: 5px;
+}
+
+.category-item {
+  cursor: pointer;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  margin-left: 25px;
+}
+
+.category-item.selected {
+  font-weight: bold;
+  color: #6cabd8;
+}
+.button-container {
+  display: flex;
+ 
+ 
+}
+
+.button-container button {
+  padding: 1px 10px;
+  background-color: #f2f2f2;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+  background-color: #6cabd8;
+}
+
+.button-container button.active {
+  background-color: #007bff;
+  color: #ffffff;
+}
+.filter{
+  font-size: 12px;
+  margin-top: 5px;
+  margin-right: 3px;
+}
+
+.product-list {
+  margin-top: 20px;
+  margin-left: 75px;
+  list-style-type: none;
+  padding: 0;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.product-list li {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 320px;
+  height: 325px;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+.product-list .product-name {
+  justify-content: center;
+  align-items: center;
+  font-weight: 800px;
+  display: flex;
+ 
+}
+
+.product-list .product-price {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  margin-bottom: 20px;
+  margin-left: 45px;
+}
+
+.product-list .product-link {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #6cabd8;
+  color: #000000;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  margin-left: 1px;
+  font-size: 14px;
+  display: flex;
+  margin-top: 1px;
+  padding-left: 102px;
   
-  .category-item {
-    margin: 10px;
-    padding: 10px;
-    background-color: lightgray;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .category-item:hover {
-    background-color: gray;
-    color: white;
-  }
+}
+
+.product-link:hover {
+  background-color: #007bff;
+}
+
+
+
+
+

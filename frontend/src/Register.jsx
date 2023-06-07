@@ -20,20 +20,21 @@ const Register = () => {
 
     const handleSubmit=async(event) =>{
         event.preventDefault();
-       /* const nameRegex = /^[a-zA-Z\s]*$/;
-        if (!values.name || !nameRegex.test(values.name) || values.name.length < 3) {
+       const nameRegex =  /^[A-Za-z\s'-]{3,50}$/;
+        if (!values.name || !nameRegex.test(values.name)) {
           toast.error('Ju lutem shkruani një emër të vlefshëm (të paktën 3 karaktere dhe pa numra)!', {
             position: toast.POSITION.TOP_RIGHT
           });
           return;
-        }*/
+        }
         const emailRegex = /^\S+@\S+\.\S+$/;
         if (!values.email || !emailRegex.test(values.email)) {
           toast.error('Ju lutem shkruani një email të vlefshëm!', { position: toast.POSITION.TOP_RIGHT });
           return;
         }
-        if (!values.password || values.password.length < 6) {
-          toast.error('Fjalëkalimi duhet të ketë të paktën 6 karaktere!', { position: toast.POSITION.TOP_RIGHT });
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+        if (!values.password || !passwordRegex.test(values.password)) {
+          toast.error('Fjalëkalimi duhet të ketë të paktën 6 karaktere,1 shkronjë të madhe,1 shkronjë të vogël,1 simbol (@$!%*?&) dhe 1 numër!', { position: toast.POSITION.TOP_RIGHT });
           return;
         }
         
