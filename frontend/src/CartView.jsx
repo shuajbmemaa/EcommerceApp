@@ -22,6 +22,7 @@ const CartView = () => {
       rating: 0,
       comment: ''
     });
+    const [reviews, setReviews] = useState([]);
 
     const handleReviewSubmit = e => {
       e.preventDefault();
@@ -113,7 +114,15 @@ const CartView = () => {
             <p className="card-category">Kategori: {karta.category_id}</p>
             <p className="card-created">Krijuar me: {karta.created_at}</p>
           </div>
-          <Link to="/" className=" btn-a ">
+          <h2 className="h2">Reviews</h2>
+          {reviews.map((review, reviewIndex) => (
+            <div key={reviewIndex} className="review">
+              <p className="review-name">Name: {review.name}</p>
+              <p className="review-rating">Rating: {review.rating}</p>
+              <p className="review-comment">Comment: {review.comment}</p>
+            </div>
+          ))}
+          <Link to="/" className="btn btn-primary">
             Kthehu
           </Link>
           <Link to="/Blej" className=" btn-b " >
@@ -123,41 +132,103 @@ const CartView = () => {
        
         </div>
       ))}
-      
-      <h2 className="review-heading">Vlerëso produktin </h2>
-<form className="review-form" onSubmit={handleReviewSubmit}>
-  <div className="form-group">
-    <label htmlFor="reviewName">Titulli për vlerësim</label>
-    <input
-      type="text"
-      id="reviewName"
-      value={review.name}
-      onChange={e => setReview({ ...review, name: e.target.value })}
-      className="input"
-    />
-  </div>
-  <div className="form-group">
-    <label htmlFor="reviewRating">Vlerësimi juaj?</label>
-    <input
-      type="number"
-      id="reviewRating"
-      value={review.rating}
-      onChange={e => setReview({ ...review, rating: e.target.value })}
-      className="input"
-    />
-  </div>
-  <div className="form-group">
-    <label htmlFor="reviewComment">Mendimi juaj për produktin</label>
-    <textarea
-      id="reviewComment"
-      value={review.comment}
-      onChange={e => setReview({ ...review, comment: e.target.value })}
-      className="textarea"
-    ></textarea>
-  </div>
-  <button type="submit" className="review-submit-button">Shto vlerësimin! </button>
-</form>
-
+    <h2 className="h2">Plotësoni të dhënat e porosisë</h2>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Emri</label>
+          <input
+            type="text"
+            id="name"
+            value={order.name}
+            onChange={e => setOrder({ ...order, name: e.target.value })}
+            className="input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="address">Adresa</label>
+          <input
+            type="text"
+            id="address"
+            value={order.address}
+            onChange={e => setOrder({ ...order, address: e.target.value })}
+            className="input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="city">Qyteti</label>
+          <input
+            type="text"
+            id="city"
+            value={order.city}
+            onChange={e => setOrder({ ...order, city: e.target.value })}
+            className="input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="country">Vendi</label>
+          <input
+            type="text"
+            id="country"
+            value={order.country}
+            onChange={e => setOrder({ ...order, country: e.target.value })}
+            className="input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="postalCode">Kodi Postar</label>
+          <input
+            type="text"
+            id="postalCode"
+            value={order.postalCode}
+            onChange={e => setOrder({ ...order, postalCode: e.target.value })}
+            className="input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="status">Statusi</label>
+          <input
+            type="text"
+            id="status"
+            value={order.status}
+            onChange={e => setOrder({ ...order, status: e.target.value })}
+            className="input"
+          />
+        </div>
+        <button type="submit" className="buttonn">Porosit</button>
+      </form>
+      <form className="form" onSubmit={handleReviewSubmit}>
+      <h2 className="h2">Shto një review</h2>
+        <div className="form-group">
+          <label htmlFor="reviewName">Emri</label>
+          <input
+            type="text"
+            id="reviewName"
+            value={review.name}
+            onChange={e => setReview({ ...review, name: e.target.value })}
+            className="input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="reviewRating">Vlerësimi</label>
+          <input
+            type="number"
+            id="reviewRating"
+            value={review.rating}
+            onChange={e => setReview({ ...review, rating: e.target.value })}
+            className="input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="reviewComment">Komenti</label>
+          <textarea
+            id="reviewComment"
+            value={review.comment}
+            onChange={e => setReview({ ...review, comment: e.target.value })}
+            className="textarea"
+          ></textarea>
+        </div>
+        <button type="submit" className="buttonn">Shto Review</button>
+      </form>
     
     </div>
     </div>

@@ -440,6 +440,19 @@ app.post('/createReview', (req, res) => {
     res.json({ status: 'Success' });
   });
 });
+app.get('/getReviews/:productId', (req, res) => {
+  const productId = req.params.productId;
+  const query = 'SELECT * FROM reviews WHERE product_id = ?';
+
+  db.query(query, [productId], (error, results) => {
+    if (error) {
+      console.error('Gabim gjatë marrjes së reviews: ' + error.stack);
+      res.status(500).json({ error: 'Gabim gjatë marrjes së reviews' });
+      return;
+    }
+    res.json({ Status: 'Success', Result: results });
+  });
+});
 
 /*
 app.get('/produktetUser', (req, res) => {
