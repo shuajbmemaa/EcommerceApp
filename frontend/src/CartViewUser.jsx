@@ -40,8 +40,6 @@ const CartViewUser = () => {
         .catch(err => console.log(err));
     };
 
-    
-
     const handleSubmit = e => {
       e.preventDefault();
       axios.post('http://localhost:8081/createOrder', {
@@ -92,16 +90,15 @@ const CartViewUser = () => {
 
 
   return (
-<div className="cart-view">
+    <div className="cart-view">
       {view.map((karta, index) => (
         <div className="card" key={index}>
-          <div className="card-details">
           <img
             src={`http://localhost:8081/images/` + karta.image_url}
             alt=""
             className="card-image"
           />
-           <div className="details">
+          <div className="card-details">
             <h3 className="card-title">{karta.name}</h3>
             <p className="card-description">{karta.description}</p>
             <p className="card-price">Çmimi: {karta.price}</p>
@@ -120,11 +117,6 @@ const CartViewUser = () => {
           <Link to="/" className="btn btn-primary">
             Kthehu
           </Link>
-          <Link to="/Blej" className=" btn-primary " >
-            Blej
-          </Link>
-          </div>
-       
         </div>
       ))}
     <h2 className="h2">Plotësoni të dhënat e porosisë</h2>
