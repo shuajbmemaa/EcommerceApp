@@ -14,6 +14,31 @@ const CartViewUser = () => {
       postalCode: '',
       status: 'Pending'
     });
+    const [review, setReview] = useState({
+      name: '',
+      rating: 0,
+      comment: ''
+    });
+    const [reviews, setReviews] = useState([]);
+
+    const handleReviewSubmit = e => {
+      e.preventDefault();
+      axios.post('http://localhost:8081/createReview', {
+        product_id: id,
+        name: review.name,
+        rating: review.rating,
+        comment: review.comment,
+        created_at: new Date()
+      })
+        .then(res => {
+          if (res.data.status === 'Success') {
+            toast.success('Review added!')
+          } else {
+            alert('Gabim gjate shtimit te review');
+          }
+        })
+        .catch(err => console.log(err));
+    };
 
     const handleSubmit = e => {
       e.preventDefault();
@@ -51,6 +76,17 @@ const CartViewUser = () => {
           })
           .catch(err => console.log(err));
       },[]);
+      useEffect(() => {
+        axios.get(`http://localhost:8081/getReviews/${id}`)
+          .then(res => {
+            if (res.data.Status === "Success") {
+              setReviews(res.data.Result);
+            } else {
+              alert("Error");
+            }
+          })
+          .catch(err => console.log(err));
+      }, [id]);
 
 
   return (
@@ -70,6 +106,14 @@ const CartViewUser = () => {
             <p className="card-category">Kategori: {karta.category_id}</p>
             <p className="card-created">Krijuar me: {karta.created_at}</p>
           </div>
+          <h2 className="h2">Reviews</h2>
+          {reviews.map((review, reviewIndex) => (
+            <div key={reviewIndex} className="review">
+              <p className="review-name">Name: {review.name}</p>
+              <p className="review-rating">Rating: {review.rating}</p>
+              <p className="review-comment">Comment: {review.comment}</p>
+            </div>
+          ))}
           <Link to="/" className="btn btn-primary">
             Kthehu
           </Link>
@@ -133,8 +177,42 @@ const CartViewUser = () => {
         </div>
         <button type="submit" className="buttonn">Porosit</button>
       </form>
+      <form className="form" onSubmit={handleReviewSubmit}>
+        <div className="form-group">
+        <h2 className="h2">Shto një review</h2>
+          <label htmlFor="reviewName">Emri</label>
+          <input
+            type="text"
+            id="reviewName"
+            value={review.name}
+            onChange={e => setReview({ ...review, name: e.target.value })}
+            className="input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="reviewRating">Vlerësimi</label>
+          <input
+            type="number"
+            id="reviewRating"
+            value={review.rating}
+            onChange={e => setReview({ ...review, rating: e.target.value })}
+            className="input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="reviewComment">Komenti</label>
+          <textarea
+            id="reviewComment"
+            value={review.comment}
+            onChange={e => setReview({ ...review, comment: e.target.value })}
+            className="textarea"
+          ></textarea>
+        </div>
+        <button type="submit" className="buttonn">Shto Review</button>
+      </form>
+    
     </div>
   )
 }
 
-export default CartViewUser
+export default CartViewUser;

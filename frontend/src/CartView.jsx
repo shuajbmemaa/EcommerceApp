@@ -183,8 +183,8 @@ const CartView = () => {
         </div>
         <button type="submit" className="buttonn">Porosit</button>
       </form>
-      <h2 className="h2">Shto një review</h2>
       <form className="form" onSubmit={handleReviewSubmit}>
+      <h2 className="h2">Shto një review</h2>
         <div className="form-group">
           <label htmlFor="reviewName">Emri</label>
           <input
