@@ -108,7 +108,7 @@
 .product-list .product-link {
   display: inline-block;
   padding: 6px 12px;
-  background-color: #6cabd8;
+  background-color: #2d2a2a;
   color: #fffdfd;
   text-decoration: none;
   border: none;
@@ -122,7 +122,7 @@
 }
 
 .product-link:hover {
-  background-color: #007bff;
+  background-color: #474747;
 }
 
 .product-listt {
@@ -165,7 +165,7 @@
 .product-listt .product-link {
   display: inline-block;
   padding: 6px 12px;
-  background-color: #6cabd8;
+  background-color: #2d2a2a;
   color: #fff;
   text-decoration: none;
   border: none;
@@ -178,8 +178,8 @@
   
 }
 
-.product-link:hover {
-  background-color: #84a7cc;
+.product-listt .product-link:hover {
+  background-color: #474747;
 }
 
 

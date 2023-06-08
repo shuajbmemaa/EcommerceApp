@@ -58,13 +58,13 @@ text-align: center;
  text-decoration: none;
  border-radius: 5px;
  color: #fff;
- background-color: #505355;
+ background-color: #2d2a2a;
  border: none;
  cursor: pointer;
  margin-right: 4px;
  position:relative;
  top: 300px;
- left: 20px;
+ left: 65px;
 }
 .btn-a.blue-btn {
   background-color: #4682B4;
@@ -80,7 +80,7 @@ text-align: center;
 
 
 .card .btn-a:hover {
-  background-color: #a0abb7;
+  background-color: #474747;
 }
 
 .review-heading {
