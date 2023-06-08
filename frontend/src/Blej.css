@@ -5,13 +5,14 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 120px;
+  margin-top: 10px;
   margin-left: 600px;
   
 }
 
 .form-group {
   margin-bottom: 15px;
+  margin-left: -9px;
   
   
 }
@@ -36,12 +37,13 @@
 }
 
 .buttonn{
-  width: 230px;
+  width: 100px;
   margin-left: 16px;
   margin-top: 2px;
   border-radius: 4px;
   height: 35px;
   background-color: #4682B4;
+  border:none;
 }
 
 .buttonn:hover{
@@ -49,8 +51,11 @@
 }
 
 .buttoni{
-  width: 230px;
-  margin-left: 16px;
-  margin-top: 2px;
+  width: 100px;
+  height: 35px;
+  margin-left: 20px;
+  border-radius: 4px;
+  margin-bottom: 3.5px;
+  border: none;
 
 }
