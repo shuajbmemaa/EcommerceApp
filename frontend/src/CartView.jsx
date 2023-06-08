@@ -112,7 +112,6 @@ const CartView = () => {
               <p className="review-name">Name: {review.name}</p>
               <p className="review-rating">Rating: {review.rating}</p>
               <p className="review-comment">Comment: {review.comment}</p>
-              <p className="review-created-at">Created At: {review.created_at}</p>
             </div>
           ))}
           <Link to="/" className="btn btn-primary">
