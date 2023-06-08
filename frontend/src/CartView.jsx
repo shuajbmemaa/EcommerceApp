@@ -133,7 +133,7 @@ const CartView = () => {
         </div>
       ))}
     <h2 className="h2">Plotësoni të dhënat e porosisë</h2>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleReviewSubmit}>
         <div className="form-group">
           <label htmlFor="name">Emri</label>
           <input
