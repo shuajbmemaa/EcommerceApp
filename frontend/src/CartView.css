@@ -1,39 +1,43 @@
-.cart-view {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 
 .card {
-  width: 300px;
+  width: 1200px;
   margin: 20px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 120px;
-  margin-left: 200px;
+  margin-top: 40px;
+  margin-left: 150px;  
+
+  
 }
 
-.card .card-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.card .card-details .card-image {
+  width: 550px;
+  height: 550px;
   border-radius: 5px;
+ 
 }
 
 .card .card-details {
-  margin-top: 10px;
+  margin-left: 40px;
+  display:flex;
 }
+  
 
-.card .card-title {
-  font-size: 18px;
+
+.card .card-details .card-title {
+  font-size: 28px;
   font-weight: bold;
+  margin-left: 10px;
+  
+  
 }
 
-.card .card-description {
+.card .card-details .card-description {
   margin-top: 5px;
   font-size: 14px;
+  margin-left: 10px;
 }
 
 .card .card-price,
@@ -42,66 +46,102 @@
 .card .card-created {
   margin-top: 5px;
   font-size: 14px;
+  margin-left: 10px;
 }
 
-.btn-primary {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 6px 12px;
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
+.card-details .btn-a {
+ margin-right: 2px;
+ padding: 8px 90px;
+
+
   color: #fff;
-  background-color: #007bff;
-  border: none;
-  cursor: pointer;
+  background-color: #4682B4;
+ font-size: 14px;
+ font-weight: bold;
+ text-align: center;
+ text-decoration: none;
+ border-radius: 5px;
+ color: #fff;
+ background-color: #4682B4;
+ border: none;
+ cursor: pointer;
+ width: 450px;
+ height: 40px;
+ margin-top: 520px;
+
+
+
 }
 
-.btn-primary:hover {
+.card .btn-a:hover {
   background-color: #0056b3;
 }
 
-.h2 {
-  padding-top: 40px;
-  font-size: 24px;
-  font-weight: bold;
+.card-details .btn-b {
+  padding: 8px 90px;
+ font-size: 14px;
+ font-weight: bold;
+ text-align: center;
+ text-decoration: none;
+ border-radius: 5px;
+ color: #fff;
+ background-color: #505355;
+ border: none;
+ cursor: pointer;
+ width: 450px;
+ height: 40px;
+ margin-top: 520px;
+
 }
 
-.form {
-  width: 300px;
-  margin: 20px;
-  padding: 20px;
+.card .btn-b:hover {
+  background-color: #a0abb7;
+}
+
+.review-heading {
+  color: #4e4d4d;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-left: 150px;
+  
+}
+
+.review-form {
+  margin-top: 8px;
+  margin-left: 150px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 120px;
-  margin-right: 185px;
-  
+  width: 1200px;
+  height: 380px;
+  padding: 20px;
+ 
 }
 
 .form-group {
-  margin-bottom: 15px;
-  
+  margin-bottom: 10px;
+  padding-top: 13px;
+  padding-left: 13px;
+
   
 }
 
 .label {
   display: block;
-  font-size: 14px;
   font-weight: bold;
 }
 
-.input{
+.input,
+.textarea {
   width: 100%;
-  padding: 8px 12px;
-  font-size: 14px;
+  padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
-.buttonn{
+
+.review-submit-button{
   display: inline-block;
   padding: 8px 90px;
   font-size: 14px;
@@ -110,14 +150,24 @@
   text-decoration: none;
   border-radius: 5px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #4682B4;
   border: none;
   cursor: pointer;
-  margin-left: 17px;
+  margin-left: 450px
 }
 
-.buttonn:hover {
+.review-submit-button:hover {
   background-color: #0056b3;
 }
+
+.kompania {
+  font-size: 10px;
+  font-style: italic;
+  color: #201f1f;
+  text-align: left;
+  margin-top: 5px;
+}
+
+
 
 

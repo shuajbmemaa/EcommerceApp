@@ -1,4 +1,7 @@
 import axios from 'axios';
+import { Badge, Container, Dropdown, FormControl, Nav, Navbar } from 'react-bootstrap';
+import { FaShoppingCart } from 'react-icons/fa';
+import { LogoutOutlined } from '@ant-design/icons';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import './CartView.css'
@@ -39,24 +42,10 @@ const CartView = () => {
         .catch(err => console.log(err));
     };
 
-    const handleSubmit = e => {
-      e.preventDefault();
-      axios.post('http://localhost:8081/createOrder', {
-          user_id: id,
-          order_date: new Date(),
-          name: order.name,
-          address: order.address,
-          city: order.city,
-          country: order.country,
-          postal_code: order.postalCode,
-          status: order.status
-        })
+    const handleLogout = () => {
+      axios.get('http://localhost:8081/logoutUser')
         .then(res => {
-          if (res.data.status === 'Success') {
-            toast.success('Order done!')
-          } else {
-            alert('Gabim gjatë regjistrimit të porosisë');
-          }
+          window.location.reload();
         })
         .catch(err => console.log(err));
     };
@@ -75,18 +64,48 @@ const CartView = () => {
           })
           .catch(err => console.log(err));
       },[]);
+      
 
 
   return (
+    <div>
+    <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
+      <Container>
+        <Navbar.Brand>
+          <h1 className="shop">TheVirtualMall</h1>
+        </Navbar.Brand>
+        <Navbar.Text className="search">
+          <FormControl style={{ width: 500 }} placeholder="Kërko produktin!" className="m-auto" />
+        </Navbar.Text>
+        <Nav className="ms-auto">
+          <li onClick={handleLogout} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+            <LogoutOutlined style={{ fontSize: '20px', marginRight: '5px', color: 'white' }} />
+            <span style={{ fontSize: '16px', color: 'white',paddingRight:'10px' }}>Logout</span>
+          </li>
+          <li>
+            <Dropdown alignRight>
+              <Dropdown.Toggle variant="secondary">
+                <FaShoppingCart color="white" fontSize="25px" />
+                <Badge style={{ marginLeft: '5px', color: 'white' }}>{0}</Badge>
+              </Dropdown.Toggle>
+              <Dropdown.Menu style={{ minWidth: 370 }}>
+                <span style={{ padding: '10px', fontSize: '16px' }}>Shporta është e zbrazët!</span>
+              </Dropdown.Menu>
+            </Dropdown>
+          </li>
+        </Nav>
+      </Container>
+    </Navbar>
     <div className="cart-view">
       {view.map((karta, index) => (
         <div className="card" key={index}>
+          <div className="card-details">
           <img
             src={`http://localhost:8081/images/` + karta.image_url}
             alt=""
             className="card-image"
           />
-          <div className="card-details">
+           <div className="details">
             <h3 className="card-title">{karta.name}</h3>
             <p className="card-description">{karta.description}</p>
             <p className="card-price">Çmimi: {karta.price}</p>
@@ -94,109 +113,53 @@ const CartView = () => {
             <p className="card-category">Kategori: {karta.category_id}</p>
             <p className="card-created">Krijuar me: {karta.created_at}</p>
           </div>
-          <Link to="/" className="btn btn-primary">
+          <Link to="/" className=" btn-a ">
             Kthehu
           </Link>
+          <Link to="/Blej" className=" btn-b " >
+            Blej
+          </Link>
+          </div>
+       
         </div>
       ))}
-    <h2 className="h2">Plotësoni të dhënat e porosisë</h2>
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Emri</label>
-          <input
-            type="text"
-            id="name"
-            value={order.name}
-            onChange={e => setOrder({ ...order, name: e.target.value })}
-            className="input"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="address">Adresa</label>
-          <input
-            type="text"
-            id="address"
-            value={order.address}
-            onChange={e => setOrder({ ...order, address: e.target.value })}
-            className="input"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="city">Qyteti</label>
-          <input
-            type="text"
-            id="city"
-            value={order.city}
-            onChange={e => setOrder({ ...order, city: e.target.value })}
-            className="input"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="country">Vendi</label>
-          <input
-            type="text"
-            id="country"
-            value={order.country}
-            onChange={e => setOrder({ ...order, country: e.target.value })}
-            className="input"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="postalCode">Kodi Postar</label>
-          <input
-            type="text"
-            id="postalCode"
-            value={order.postalCode}
-            onChange={e => setOrder({ ...order, postalCode: e.target.value })}
-            className="input"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="status">Statusi</label>
-          <input
-            type="text"
-            id="status"
-            value={order.status}
-            onChange={e => setOrder({ ...order, status: e.target.value })}
-            className="input"
-          />
-        </div>
-        <button type="submit" className="buttonn">Porosit</button>
-      </form>
-      <h2 className="h2">Shto një review</h2>
-      <form className="form" onSubmit={handleReviewSubmit}>
-        <div className="form-group">
-          <label htmlFor="reviewName">Emri</label>
-          <input
-            type="text"
-            id="reviewName"
-            value={review.name}
-            onChange={e => setReview({ ...review, name: e.target.value })}
-            className="input"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="reviewRating">Vlerësimi</label>
-          <input
-            type="number"
-            id="reviewRating"
-            value={review.rating}
-            onChange={e => setReview({ ...review, rating: e.target.value })}
-            className="input"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="reviewComment">Komenti</label>
-          <textarea
-            id="reviewComment"
-            value={review.comment}
-            onChange={e => setReview({ ...review, comment: e.target.value })}
-            className="textarea"
-          ></textarea>
-        </div>
-        <button type="submit" className="buttonn">Shto Review</button>
-      </form>
+      
+      <h2 className="review-heading">Vlerëso produktin </h2>
+<form className="review-form" onSubmit={handleReviewSubmit}>
+  <div className="form-group">
+    <label htmlFor="reviewName">Titulli për vlerësim</label>
+    <input
+      type="text"
+      id="reviewName"
+      value={review.name}
+      onChange={e => setReview({ ...review, name: e.target.value })}
+      className="input"
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="reviewRating">Vlerësimi juaj?</label>
+    <input
+      type="number"
+      id="reviewRating"
+      value={review.rating}
+      onChange={e => setReview({ ...review, rating: e.target.value })}
+      className="input"
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="reviewComment">Mendimi juaj për produktin</label>
+    <textarea
+      id="reviewComment"
+      value={review.comment}
+      onChange={e => setReview({ ...review, comment: e.target.value })}
+      className="textarea"
+    ></textarea>
+  </div>
+  <button type="submit" className="review-submit-button">Shto vlerësimin! </button>
+</form>
+
     
+    </div>
     </div>
   )
 }

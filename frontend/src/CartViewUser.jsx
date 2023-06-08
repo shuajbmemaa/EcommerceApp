@@ -15,6 +15,8 @@ const CartViewUser = () => {
       status: 'Pending'
     });
 
+    
+
     const handleSubmit = e => {
       e.preventDefault();
       axios.post('http://localhost:8081/createOrder', {
@@ -54,15 +56,16 @@ const CartViewUser = () => {
 
 
   return (
-    <div className="cart-view">
+<div className="cart-view">
       {view.map((karta, index) => (
         <div className="card" key={index}>
+          <div className="card-details">
           <img
             src={`http://localhost:8081/images/` + karta.image_url}
             alt=""
             className="card-image"
           />
-          <div className="card-details">
+           <div className="details">
             <h3 className="card-title">{karta.name}</h3>
             <p className="card-description">{karta.description}</p>
             <p className="card-price">Çmimi: {karta.price}</p>
@@ -70,69 +73,16 @@ const CartViewUser = () => {
             <p className="card-category">Kategori: {karta.category_id}</p>
             <p className="card-created">Krijuar me: {karta.created_at}</p>
           </div>
-          <Link to="/" className="btn btn-primary">
+          <Link to="/" className=" btn-dark ">
             Kthehu
           </Link>
+          <Link to="/Blej" className=" btn-primary " >
+            Blej
+          </Link>
+          </div>
+       
         </div>
       ))}
-    <h2 className="h2">Plotësoni të dhënat e porosisë</h2>
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Emri</label>
-          <input
-            type="text"
-            id="name"
-            value={order.name}
-            onChange={e => setOrder({ ...order, name: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="address">Adresa</label>
-          <input
-            type="text"
-            id="address"
-            value={order.address}
-            onChange={e => setOrder({ ...order, address: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="city">Qyteti</label>
-          <input
-            type="text"
-            id="city"
-            value={order.city}
-            onChange={e => setOrder({ ...order, city: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="country">Vendi</label>
-          <input
-            type="text"
-            id="country"
-            value={order.country}
-            onChange={e => setOrder({ ...order, country: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="postalCode">Kodi Postar</label>
-          <input
-            type="text"
-            id="postalCode"
-            value={order.postalCode}
-            onChange={e => setOrder({ ...order, postalCode: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="status">Statusi</label>
-          <input
-            type="text"
-            id="status"
-            value={order.status}
-            onChange={e => setOrder({ ...order, status: e.target.value })}
-          />
-        </div>
-        <button type="submit" className="buttonn">Porosit</button>
-      </form>
     </div>
   )
 }
