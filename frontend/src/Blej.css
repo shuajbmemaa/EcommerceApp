@@ -1,0 +1,61 @@
+.form {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  margin-left: 600px;
+  
+}
+
+.form-group {
+  margin-bottom: 15px;
+  margin-left: -9px;
+  
+  
+}
+.porosia{
+  margin-left: 618px;
+  padding-top: 5px;
+  font-size:larger;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.input{
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.buttonn{
+  width: 100px;
+  margin-left: 16px;
+  margin-top: 2px;
+  border-radius: 4px;
+  height: 35px;
+  background-color: #4682B4;
+  border:none;
+}
+
+.buttonn:hover{
+  background-color: #84a7cc;
+}
+
+.buttoni{
+  width: 100px;
+  height: 35px;
+  margin-left: 20px;
+  border-radius: 4px;
+  margin-bottom: 3.5px;
+  border: none;
+
+}

@@ -121,7 +121,7 @@ const User = () => {
       <span className="product-name">{product.name}</span>
       <span className="product-price">{product.price}€</span>
     
-      <Link to={`/cart/${product.id}`} className="product-link">Shto në shportë!</Link>
+      <Link to={`/cart/${product.id}`} className="product-link">Shiko produktin</Link>
     </li>
   ))}
 </ul>

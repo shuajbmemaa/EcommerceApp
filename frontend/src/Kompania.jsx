@@ -67,22 +67,23 @@ const Kompania = () => {
         </Nav>
       </Container>
     </Navbar>
-  <h2 className='text-center'>Kompaniaa</h2>   
-  <h2>Produktet</h2>
-  <ul>
+  <h2 className="kompania">*kjo faqe është vetëm për kompaninë </h2>   
+  <ul className="product-listt">
         {produktet.map(produkt => (
-          <li key={produkt.id}>
-            <img
-                  src={`http://localhost:8081/images/${produkt.image_url}`}
-                  alt=""
-                  className="produktet_image"
-                  style={{ width: '100px', height: '100px' }}
-                />
-                   <h3>{produkt.name}</h3>
-            <p>Çmimi: {produkt.price}</p>
-                <Link to={`/cart/` + produkt.id} className='btn btn-primary btn-sm me-2'>Shto në shportë!</Link>
-          </li> 
-        ))}
+           <li key={produkt.id}>
+        <span>
+        <img
+          src={`http://localhost:8081/images/${produkt.image_url}`}
+          alt=""
+          className="product-image"
+        />
+      </span>
+      <span className="product-name">{produkt.name}</span>
+      <span className="product-price">{produkt.price}€</span>
+    
+      <Link to={`/cart/${produkt.id}`} className="product-link">Shiko produktin</Link>
+    </li>
+  ))}
       </ul>
 </div>
 
