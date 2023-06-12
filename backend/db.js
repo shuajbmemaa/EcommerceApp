@@ -380,7 +380,7 @@ app.get('/logoutKompani',(req,res)=>{
 })
 app.get('/api/profile', (req, res) => {
   const sql = 'SELECT * FROM users WHERE id = ?';
-  const userId = 1;
+  const userId = req.query.userId;
   db.query(sql, [userId], (error, results) => {
     if (error) {
       console.error('Error executing query:', error);
