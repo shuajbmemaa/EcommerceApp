@@ -39,16 +39,15 @@ const Login = () => {
           toast.error('Email i pavlefshëm!', { position: toast.POSITION.TOP_RIGHT });
           return;
         }
-        /*const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-        if (!values.password || !passwordRegex.test(values.password)) {
-          toast.error('Fjalëkalim i pavlefshëm!', { position: toast.POSITION.TOP_RIGHT });
-          return;
-        }*/
+ 
         
         axios.post('http://localhost:8081/login',values)
         .then(res => {
             if(res.data.Login){
-                navigate('/')
+              console.log(res.data);
+              window.localStorage.setItem("userId",res.data.userId);
+                navigate('/');
+                
             }else{
                 toast.error("Të dhenat nuk janë plotësuar si duhet!",{position:toast.POSITION.TOP_RIGHT})
             }
