@@ -39,11 +39,7 @@ const Login = () => {
           toast.error('Email i pavlefshëm!', { position: toast.POSITION.TOP_RIGHT });
           return;
         }
-        /*const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-        if (!values.password || !passwordRegex.test(values.password)) {
-          toast.error('Fjalëkalim i pavlefshëm!', { position: toast.POSITION.TOP_RIGHT });
-          return;
-        }*/
+ 
         
         axios.post('http://localhost:8081/login',values)
         .then(res => {
