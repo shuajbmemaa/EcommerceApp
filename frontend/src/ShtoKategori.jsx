@@ -16,7 +16,7 @@ const ShtoKategori = () => {
     axios.post('http://localhost:8081/createCategory', kategori)
       .then(res => {
         navigate('/kategorite');
-        toast.success('Kategoria u shtua!');
+        toast.success('Kategoriaa u shtua!');
       })
       .catch(err => console.log(err));
   };

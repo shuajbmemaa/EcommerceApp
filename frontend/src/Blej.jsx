@@ -22,7 +22,7 @@ const Blej = () => {
     const handleSubmit = e => {
       e.preventDefault();
       axios.post('http://localhost:8081/createOrder', {
-          user_id: id,
+          user_id: window.localStorage.getItem("userId"),
           order_date: new Date(),
           name: order.name,
           address: order.address,

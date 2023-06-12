@@ -44,7 +44,10 @@ const Login = () => {
         axios.post('http://localhost:8081/login',values)
         .then(res => {
             if(res.data.Login){
-                navigate('/')
+              console.log(res.data);
+              window.localStorage.setItem("userId",res.data.userId);
+                navigate('/');
+                
             }else{
                 toast.error("Të dhenat nuk janë plotësuar si duhet!",{position:toast.POSITION.TOP_RIGHT})
             }

@@ -177,10 +177,9 @@ app.post('/login', (req, res) => {
     }
     if (result.length > 0) {
       req.session.role = result[0].role;
-
       //console.log(req.session.name);
       //console.log(result);
-      return res.json({ Login: true, name: req.session.name })
+      return res.json({ Login: true,userId: result[0].id, name: req.session.name })
     } else {
       res.json({ Login: false });
     }
@@ -381,8 +380,7 @@ app.get('/logoutKompani',(req,res)=>{
 })
 app.get('/api/profile', (req, res) => {
   const sql = 'SELECT * FROM users WHERE id = ?';
-  const userId = 1; // Change this to the actual user ID
-
+  const userId = req.query.userId;
   db.query(sql, [userId], (error, results) => {
     if (error) {
       console.error('Error executing query:', error);
