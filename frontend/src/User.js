@@ -10,6 +10,7 @@ const User = () => {
   const [produktet, setProduktet] = useState([]);
   const [kategoriteUser, setKategoriteUser] = useState([]);
   const [kategoriaZgjedhur, setKategoriaZgjedhur] = useState(null);
+  const [keyword,setKeyWord]= useState("");
 
   useEffect(() => {
     axios.get('http://localhost:8081/user/kategorite')
@@ -52,10 +53,20 @@ const User = () => {
     setKategoriaZgjedhur(kategoriaId);
   };
 
-  const produktetFiltruar = kategoriaZgjedhur
-    ? produktet.filter(product => product.category_id === kategoriaZgjedhur)
-    : produktet;
+  const handleSearchChange=(productName) => {
+
+    setKeyWord(productName.target.value.toLowerCase());
+  };
   
+  const searched = (keyword) => (product) => product.name.toLowerCase().includes(keyword);
+
+
+
+
+  const produktetFiltruar = kategoriaZgjedhur
+  ? produktet.filter((product) => product.category_id === kategoriaZgjedhur)
+  : produktet.filter(searched(keyword));
+
   return (
     <div>
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
@@ -64,7 +75,7 @@ const User = () => {
           <h1 className="shop">TheVirtualMall</h1>
         </Navbar.Brand>
         <Navbar.Text className="search">
-          <FormControl style={{ width: 500 }} placeholder="Kërko produktin!" className="m-auto" />
+          <FormControl style={{ width: 500 }} placeholder="Kërko produktin!" value={keyword} onChange={handleSearchChange} className="m-auto" />
         </Navbar.Text>
         <Nav className="ms-auto">
           <li onClick={handleLogout} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
@@ -108,20 +119,17 @@ const User = () => {
         <button onClick={() => handlePriceFilter('1000+')}>&gt;1000</button>
       </div>
 
-      <ul className="product-list">
-  {produktetFiltruar.map(product => (
+<ul className="product-list">
+  {produktetFiltruar.map((product) => (
     <li key={product.id}>
-        <span>
-        <img
-          src={`http://localhost:8081/images/${product.image_url}`}
-          alt=""
-          className="product-image"
-        />
+      <span>
+        <img src={`http://localhost:8081/images/${product.image_url}`} alt="" className="product-image" />
       </span>
       <span className="product-name">{product.name}</span>
       <span className="product-price">{product.price}€</span>
-    
-      <Link to={`/cart/${product.id}`} className="product-link">Shiko produktin</Link>
+      <Link to={`/cart/${product.id}`} className="product-link">
+        Shiko produktin
+      </Link>
     </li>
   ))}
 </ul>

@@ -9,6 +9,9 @@ import './CategoriesStyle.css';
 const Kompania = () => {
   const [produktet, setProduktet] = useState([]);
   const [karte,setKarte]=useState(0);
+  const [keyword,setKeyWord]= useState("");
+  const [kategoriaZgjedhur, setKategoriaZgjedhur] = useState(null);
+
   const handleClick = (produkt) =>{
     console.log(produkt);
   }
@@ -32,6 +35,16 @@ const Kompania = () => {
       })
       .catch(err => console.log(err));
   };
+  const handleSearchChange=(productName) => {
+
+    setKeyWord(productName.target.value.toLowerCase());
+  };
+  
+  const searched = (keyword) => (product) => product.name.toLowerCase().includes(keyword);
+
+  const produktetFiltruar = kategoriaZgjedhur
+  ? produktet.filter((product) => product.category_id === kategoriaZgjedhur)
+  : produktet.filter(searched(keyword));
 
   function karta(){
     setKarte(karte+1);
@@ -46,7 +59,7 @@ const Kompania = () => {
           <h1 className="shop">TheVirtualMall</h1>
         </Navbar.Brand>
         <Navbar.Text className="search">
-          <FormControl style={{ width: 500 }} placeholder="Kërko produktin!" className="m-auto" />
+          <FormControl style={{ width: 500 }} placeholder="Kërko produktin!" value={keyword} onChange={handleSearchChange} className="m-auto" />
         </Navbar.Text>
         <Nav className="ms-auto">
           <li onClick={handleLogout} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
@@ -68,23 +81,21 @@ const Kompania = () => {
       </Container>
     </Navbar>
   <h2 className="kompania">*kjo faqe është vetëm për kompaninë </h2>   
-  <ul className="product-listt">
-        {produktet.map(produkt => (
-           <li key={produkt.id}>
-        <span>
-        <img
-          src={`http://localhost:8081/images/${produkt.image_url}`}
-          alt=""
-          className="product-image"
-        />
+  <ul className="product-list">
+  {produktetFiltruar.map((product) => (
+    <li key={product.id}>
+      <span>
+        <img src={`http://localhost:8081/images/${product.image_url}`} alt="" className="product-image" />
       </span>
-      <span className="product-name">{produkt.name}</span>
-      <span className="product-price">{produkt.price}€</span>
-    
-      <Link to={`/cart/${produkt.id}`} className="product-link">Shiko produktin</Link>
+      <span className="product-name">{product.name}</span>
+      <span className="product-price">{product.price}€</span>
+      <Link to={`/cart/${product.id}`} className="product-link">
+        Shiko produktin
+      </Link>
     </li>
   ))}
-      </ul>
+</ul>
+
 </div>
 
   )
