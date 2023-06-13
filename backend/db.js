@@ -131,7 +131,7 @@ app.get('/productCount',(req,res)=>{
 })
 
 app.get('/userCount', (req, res) => {
-  const sql = "Select count(id) as users from users where role ='user'";
+  const sql = "Select count(id) as users from users where role ='user' or role = 'kompani'";
   db.query(sql, (err, result) => {
     if (err) return res.json({ Error: "Error in running query" })
     return res.json(result)
