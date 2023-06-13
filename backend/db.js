@@ -452,8 +452,8 @@ app.get('/getReviews/:productId', (req, res) => {
   });
 });
 
-/*
-app.get('/produktetUser', (req, res) => {
+
+/*app.get('/produktetUser', (req, res) => {
   const priceRange = req.query.priceRange;
 
   let minPrice = 0;
@@ -475,19 +475,32 @@ app.get('/produktetUser', (req, res) => {
       minPrice = 1000;
       break;
     default:
-      break;
+      res.status(400).json({ error: 'Invalid price range' });
+      return;
   }
-  const sql = `SELECT * FROM products WHERE price >= ? AND price <= ?`;
-  db.query(sql, [minPrice, maxPrice], (err, result) => {
-    if (err) {
-      console.log('Gabim gjatë marrjes së produktit', err);
-      res.status(500).send('Gabim gjatë marrjes së produktit');
-    } else {
-      res.status(200).json(result);
+
+  // Construct the SQL query with the price range filter
+  const query = `SELECT * FROM products WHERE price >= ${minPrice} AND price <= ${maxPrice}`;
+  
+  db.query(query, (error, results) => {
+    if (error) {
+      console.error('Gabim gjate marrjes se produkteve: ' + error.stack);
+      res.status(500).json({ error: 'Gabim gjate marrjes se produkteve' });
+      return;
     }
+
+    // Return the response with the filtered products
+    res.json(results);
   });
 });
+//With the updated code, you can now make a GET request to /produktetKompani endpoint with the priceRange query parameter set to one of the following values: 0-100, 100-200, 200-500, or above1000. The code will then filter the products based on the selected price range and return the filtered results in the response.
 */
+
+
+
+
+
+
 
 
 app.get('/produktetKompani', (req, res) => {
